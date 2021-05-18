@@ -1,0 +1,21 @@
+{
+    "overlap": 0.2,
+    "tile_size": 400,
+    "class_thumbnail_sizes": {
+        "bus":           171,
+        "van_rv":        127,
+        "small":         101,
+        "specialized":   111,
+        "truck":         223,
+        "trailer_large": 219,
+        "trailer_small": 101,
+        "unknown":       127
+    },
+    "outline_marker_color": [200,200,200,255],
+    "point_marker_color": [255,0,0],
+    "bb_color": [255,0,0],
+    "bucketname":"mturk-s3-cg",
+    "classify_images_folder": "task2-images/LINZ/",",
+    "bb_images_folder": "task1-images/LINZ/",
+    "s3_url":"https://mturk-s3-cg.s3.amazonaws.com/"
+}
