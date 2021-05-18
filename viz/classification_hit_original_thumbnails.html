@@ -1,0 +1,130 @@
+<script src="https://assets.crowd.aws/crowd-html-elements.js"></script>
+<!-- <script src="js/initialize.js" type="text/javascript"></script> -->
+<script src="https://mturk-s3-cg.s3.amazonaws.com/initialize.js" type="text/javascript"></script>
+
+<style>
+     img.negative {
+        width: 100%;
+        height: 60%;
+        margin: 10px;
+    }
+
+    img.positive {
+        width: 60%;
+    }
+
+    img.unknown {
+        width: 30%;
+    }
+</style>
+<script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+        console.log("DOMcontent fully loaded");
+        var interval = setInterval(function () {
+            if (document.readyState === 'complete') {
+                clearInterval(interval);
+                initializeTask2();
+                zoomAllImages(7);
+                console.log("initialized");
+            }
+        }, 1000);
+    });
+</script>
+<crowd-form>
+    <crowd-instructions link-text="View instructions" link-type="button">
+        <short-summary>
+            <p>This task contains 10 small sub-images taken from a single large image.</p>
+            <p>Each sub-image is marked with requested objects and needs to be classified to single category.</p>
+            <p>For each marked vehicle, select appropriate label.</p>
+            <p>The definitions and examples of tasks are provided <a
+                    href="https://mturk-s3-cg.s3.amazonaws.com/Classes-Definitions.pdf">here</a></p>
+            <p>This is a full task, needs to be completed for all the small images.</p>
+            <p>Skipping any single sub-image from labelling task will lead to lesser payment.</p>
+        </short-summary>
+        <detailed-instructions>
+            <p>By looking at the marked target(s) of interest, select one label:</p>
+            <ol>
+                <li>Refer these guidelines for identifying objects as well as when deciding appropriate labels : <a
+                        href="https://mturk-s3-cg.s3.amazonaws.com/Classes-Definitions.pdf">Definitions of Classes :
+                        Guidelines for each class</a></li>
+                <li>For distinguishing between large and small trailers, use relative sizes w.r.t adjacent objects and
+                    the definition of classes always !</li>
+                <li>Select appropriate category from "buses, small vehicles, small trailers, large trailers, specialized, trucks, unknown or a not a vehicle at all"</li>
+                <li> that appear and look closer to any of these categories)</li>
+                <li>There is a class called as unknown : such as it might just be significant to note it is a vehicle
+                    but not significant enough to classify as vehicle classes.</li>
+                <li>When in doubt, please do refer this <a
+                        href="https://mturk-s3-cg.s3.amazonaws.com/Classes-Definitions.pdf">Definitions of Classes</a>.
+                </li>
+            </ol>
+        </detailed-instructions>
+        <positive-example>
+            <p>small vehicle class:</p>
+
+            <img class="positive" src="https://mturk-s3-cg.s3.amazonaws.com/small.png" />
+
+            <p>trailer_large vehicle class:</p>
+
+            <img class="positive" src="https://mturk-s3-cg.s3.amazonaws.com/trailer1.png" />
+
+            <p>trailer_small vehicle class:</p>
+
+            <img class="positive" src="https://mturk-s3-cg.s3.amazonaws.com/trailer2.png" />
+
+            <p>unknown vehicle class:</p>
+            <img class="unknown" src="https://mturk-s3-cg.s3.amazonaws.com/unknown-1.jpg" />
+            <img class="unknown" src="https://mturk-s3-cg.s3.amazonaws.com/unknown-2.jpg" />
+            <img class="unknown" src="https://mturk-s3-cg.s3.amazonaws.com/unknown-3.jpg" />
+        </positive-example>
+        <negative-example>
+            <p>There are no requested objects in the following negative examples: no Vehicles, no Trailers, no Trucks,
+                SUVs, Vans, RVs. So the right option would be to select "not-a-vehicle". For all good examples, refer classes definitions.</p>
+            <img class="negative" src="https://mturk-s3-cg.s3.amazonaws.com/negative-example2.png" />
+            <img class="negative" src="https://mturk-s3-cg.s3.amazonaws.com/negative-example1.png" />
+            <img class="negative" src="https://mturk-s3-cg.s3.amazonaws.com/negative-example3.png" />
+            <img class="negative" src="https://mturk-s3-cg.s3.amazonaws.com/negative-example4.png" />
+
+        </negative-example>
+    </crowd-instructions>
+    <p style="word-break: break-all;"><strong>
+            <crowd-button variant="link" onclick="clickViewInstr();">
+                <iron-icon icon="info-outline" />
+            </crowd-button>About this Task:
+        </strong>This task contains 3 images each containing a vehicle that needs to be labelled to appropriate class. You need to select an appropriate label for the marked object in each image.
+        <a href="https://mturk-s3-cg.s3.amazonaws.com/Classes-Definitions.pdf">Visit definitions of each class and
+            examples</a>
+    </p>
+    <crowd-image-classifier name="boundingBoxClassification1" header="Choose the correct category for the marked object"
+        src="https://mturk-s3-cg.s3.amazonaws.com/task2-images/LINZ/mar10/0001_0001/0001_0001_2462-6635-small.jpg" categories="[  'Bus - includes all buses, school buses' ,  'Small - includes cars, SUVs, cars, Sedan, pickup trucks, station wagon, minivan, Coupe, Microcar, Hatchback', 
+        'Specialized - the vehicles such as tractors, plows, balers or any vehicle that has special function such as cement mixing vehicle', 
+        'Large trailers - trailers that are large -both loaded or unloaded. (relative to adjacent vehicle/objects sizes)', 
+        'Small trailers - includes small trailers such as caravans, popup campers', 
+        'Trucks - includes Large trucks, trucks with attached trailers',
+        'Unknown - such as it might just be significant to note it is a vehicle close to one of above classes but not significant enough to classify to a specific vehicle class.', 
+        'van_rv - includes vans, RVs, Motorhomes, camper vans', 'not-relevant -Vehicles that should be marked if it is a motorbike, motorcyles/bicycles, Golf carts, sprinklers etc']" >
+</crowd-image-classifier>
+    <crowd-image-classifier name="boundingBoxClassification2" header="Choose the correct category for the marked object"
+    src="https://mturk-s3-cg.s3.amazonaws.com/task2-images/LINZ/mar10/0001_0001/0001_0001_3229-7157-small.jpg" categories="[  'Bus - includes all buses, school buses' ,  'Small - includes cars, SUVs, cars, Sedan, pickup trucks, station wagon, minivan, Coupe, Microcar, Hatchback', 
+    'Specialized - the vehicles such as tractors, plows, balers or any vehicle that has special function such as cement mixing vehicle', 
+    'Large trailers - trailers that are large -both loaded or unloaded. (relative to adjacent vehicle/objects sizes)', 
+    'Small trailers - includes small trailers such as caravans, popup campers', 
+    'Trucks - includes Large trucks, trucks with attached trailers',
+    'Unknown - such as it might just be significant to note it is a vehicle close to one of above classes but not significant enough to classify to a specific vehicle class.', 
+    'van_rv - includes vans, RVs, Motorhomes, camper vans', 'not-relevant -Vehicles that should be marked if it is a motorbike, motorcyles/bicycles, Golf carts, sprinklers etc']" >
+
+    </crowd-image-classifier>
+    <crowd-image-classifier name="boundingBoxClassification3" header="Choose the correct category for the marked object"
+    src="https://mturk-s3-cg.s3.amazonaws.com/task2-images/LINZ/mar10/0001_0001/0001_0001_3795-7592-specialized.jpg" categories="[  'Bus - includes all buses, school buses' ,  'Small - includes cars, SUVs, cars, Sedan, pickup trucks, station wagon, minivan, Coupe, Microcar, Hatchback', 
+    'Specialized - the vehicles such as tractors, plows, balers or any vehicle that has special function such as cement mixing vehicle', 
+    'Large trailers - trailers that are large -both loaded or unloaded. (relative to adjacent vehicle/objects sizes)', 
+    'Small trailers - includes small trailers such as caravans, popup campers', 
+    'Trucks - includes Large trucks, trucks with attached trailers',
+    'Unknown - such as it might just be significant to note it is a vehicle close to one of above classes but not significant enough to classify to a specific vehicle class.', 
+    'van_rv - includes vans, RVs, Motorhomes, camper vans', 'not-relevant -Vehicles that should be marked if it is a motorbike, motorcyles/bicycles, Golf carts, sprinklers etc']" >
+
+    </crowd-image-classifier> 
+
+    <crowd-button id="submit-button" form-action="submit" onclick="submitClassificationTaskWhenReady(event);"
+        class="awsui-button awsui-button-variant-primary awsui-hover-child-icons" style="align-self: center;">Submit
+    </crowd-button>
+</crowd-form>
