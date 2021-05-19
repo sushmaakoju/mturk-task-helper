@@ -5,3 +5,5 @@ numpy==1.20.3
 urllib==1.26.4
 requests==2.25.1
 matplotlib==3.4.2
+pycm==3.1
+scikit-learn==0.24.2
