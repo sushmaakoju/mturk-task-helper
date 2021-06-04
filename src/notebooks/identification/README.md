@@ -43,20 +43,20 @@ Note: all file paths are absolute, it is not easy to make the paths relative, du
 * Navigate to Requester Sandbox [https://requestersandbox.mturk.com/create/projects/new](https://requestersandbox.mturk.com/create/projects/new)
 * Sign in -> click on Create a HIT -> select Image identification -> Update title, description, Rewards (as decided earlier), # of assignments (in this case 3)
 
-![image](https://github.com/sushmaakoju/mturk-task-helper/blob/main/images/identification/describeid-task.PNG)
-![image](https://github.com/sushmaakoju/mturk-task-helper/blob/main/images/identification/settingup-id-task.PNG)
-![image](https://github.com/sushmaakoju/mturk-task-helper/blob/main/images/identification/worker-rqmt-id.PNG)
-![image](https://github.com/sushmaakoju/mturk-task-helper/blob/main/images/identification/save-design-layout.PNG)
+<img src="https://github.com/sushmaakoju/mturk-task-helper/blob/main/images/identification/describeid-task.PNG" width="400" height="300">
+<img src="https://github.com/sushmaakoju/mturk-task-helper/blob/main/images/identification/settingup-id-task.PNG" width="400" height="300">
+<img src="https://github.com/sushmaakoju/mturk-task-helper/blob/main/images/identification/worker-rqmt-id.PNG" width="400" height="300">
+<img src="https://github.com/sushmaakoju/mturk-task-helper/blob/main/images/identification/save-design-layout.PNG" width="400" height="300">
 
 * depending on which layout you would like to create a HIT task for, once you are on Design layout page during creation of HIT task,
 Open one of the layout from [select one of identification layouts](https://github.com/sushmaakoju/mturk-task-helper/tree/main/viz/identification) and copy the layout code and paste it in Design layout editor as follows:
-![image](https://github.com/sushmaakoju/mturk-task-helper/blob/main/images/identification/design-id-layout.PNG)
-![image](https://github.com/sushmaakoju/mturk-task-helper/blob/main/images/identification/preview-id-task-layout.PNG)
+<img src="https://github.com/sushmaakoju/mturk-task-helper/blob/main/images/identification/design-id-layout.PNG" width="400" height="300">
+<img src="https://github.com/sushmaakoju/mturk-task-helper/blob/main/images/identification/preview-id-task-layout.PNG" width="400" height="300">
 
 * Click finish and exit HIT creation process
 * Note down the HIT Layout ID by going to "Create" section -> from among the list of HIT projects displayed, click on title of the HIT project name and it should look like this,
 notedown the HIT layout id:
-![image](https://github.com/sushmaakoju/mturk-task-helper/blob/main/images/identification/hit-layout-id.PNG)
+<img src="https://github.com/sushmaakoju/mturk-task-helper/blob/main/images/identification/hit-layout-id.PNG" width="400" height="300">
 
 * for creating Prod/Live HIT tasks, follow above steps by repeating steps on [https://requester.mturk.com/create/projects/new](https://requester.mturk.com/create/projects/new)
 
@@ -76,6 +76,6 @@ Note: This section is expected to create a batch of scripts, given a set of imag
 8. Track status
 * To track status, you should login to [https://requester.mturk.com/manage](https://requester.mturk.com/manage)
 * Select the batch you would like to check status of:
-![image](https://github.com/sushmaakoju/mturk-task-helper/blob/main/images/identification/example-batch.PNG)
+<img src="https://github.com/sushmaakoju/mturk-task-helper/blob/main/images/identification/example-batch.PNG" width="400" height="300">
 
 
