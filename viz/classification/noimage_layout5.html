@@ -1,0 +1,408 @@
+<script src="https://assets.crowd.aws/crowd-html-elements.js"></script>
+<script src="https://mturk-s3-cg.s3.amazonaws.com/mar_23/changes/april/initialize_labels.js"
+    type="text/javascript"></script>
+<link rel="stylesheet" href="https://mturk-s3-cg.s3.amazonaws.com/mar_23/changes/slider_style_4.css">
+
+<script src="https://mturk-s3-cg.s3.amazonaws.com/initialize.js" type="text/javascript"></script>
+<style>
+    img.negative {
+        width: 100%;
+        height: 60%;
+        margin: 10px;
+    }
+
+    img.positive {
+        width: 60%;
+    }
+
+    img.unknown {
+        width: 30%;
+    }
+</style>
+<script>
+    document.addEventListener('all-crowd-elements-ready', function (event) {
+        var children = document.querySelectorAll('crowd-image-classifier');
+        children.forEach(function (child) {
+            child.categories = [];
+            if (child != undefined && child.shadowRoot != undefined)
+                addAllButtonlabels(child, true);
+            child.shadowRoot.querySelector("#react-mount-point > div > div > div > div > awsui-app-layout > div > main > div > div.awsui-app-layout__content--scrollable > div > span > span > div > div > div.annotation-area.target > div > div > canvas.lower-canvas").style.setProperty("transform", "scale(1.5,1.5)");
+            child.shadowRoot.querySelector("#react-mount-point > div > div > div > div > awsui-app-layout > div > main > div > div.awsui-app-layout__content--scrollable > div > span > span > div > div > div.annotation-area.target > div > div > canvas.lower-canvas").style.setProperty("transform-origin", "top");
+            //child.shadowRoot.querySelector("#react-mount-point > div > div > div > div > awsui-app-layout > div > main > div > div.awsui-app-layout__content--scrollable > div > span > span > div > div > div.annotation-area.category-picker-wrapper").style.setProperty("width", "300px");
+            //child.shadowRoot.querySelector("#react-mount-point > div > div > div > div > awsui-app-layout > div > main > div > div.awsui-app-layout__content--scrollable > div > span > span > div > div > div.annotation-area.category-picker-wrapper > div > div").style.setProperty("height", "380px");
+            //child.shadowRoot.querySelector("#react-mount-point > div > div > div > div > awsui-app-layout > div > main > div > div.awsui-app-layout__content--scrollable > div > span > span > div > div > div.annotation-area.category-picker-wrapper > div > div").style.setProperty("width", "300px");
+        });
+        initializeTask2();
+        var uniqueUrls = new Set();
+        classifierElements.forEach(function (e) {
+            //console.log(e.src);
+            uniqueUrls.add(e.src);
+        });
+        if (uniqueUrls.size === classifierElements.length) {
+            console.log("All Image urls are unique");
+        }
+    });
+</script>
+<div id="myModal" class="modal" style="display: none;background-color: black;">
+    <span class="close cursor" onclick="closeModal()">&times;</span>
+    <div class="modal-content">
+        <div class="mySlides">
+            <div class="numbertext">1 / 6</div>
+            <img src="" style="width:500px; height:300px;" id="slide1">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">2 / 6</div>
+            <img src="" style="width:500px; height:300px;" id="slide2">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">3 / 6</div>
+            <img src="" style="width:500px; height:300px;" id="slide3">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">4 / 6</div>
+            <img src="" style="width:500px; height:300px;" id="slide4">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">5 / 6</div>
+            <img src="" style="width:500px; height:300px;" id="slide5">
+        </div>
+        <div class="mySlides">
+            <div class="numbertext">6 / 6</div>
+            <img src="" style="width:500px; height:300px;" id="slide6">
+        </div>
+
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a>
+
+        <div class="caption-container">
+            <p id="caption"></p>
+            <span id="slidedescription" style="background-color: black;color: #f2f2f2;margin: bottom 5px;"></span>
+        </div>
+
+
+
+    </div>
+</div>
+
+<crowd-form>
+    <crowd-instructions link-text="View instructions" link-type="button">
+        <short-summary>
+            <p>This task contains 25 images each containing a vehicle to be classified.</p>
+            <p>Each image is marked with requested objects and needs to be classified to single category.</p>
+            <p>For each marked vehicle, select appropriate label.</p>
+            <p>The definitions and examples of tasks are provided <a
+                    href="https://mturk-s3-cg.s3.amazonaws.com/Classes-Definitions.pdf">here</a></p>
+            <p>This is a full task, needs to be completed for all the small images.</p>
+            <p>Skipping any single sub-image from labelling task will lead to lesser payment.</p>
+        </short-summary>
+        <detailed-instructions>
+            <p>By looking at the marked target(s) of interest, select one label:</p>
+            <ol>
+                <li>Refer these guidelines for identifying objects as well as when deciding appropriate labels : <a
+                        href="https://mturk-s3-cg.s3.amazonaws.com/Classes-Definitions.pdf">Definitions of Classes :
+                        Guidelines for each class</a></li>
+                <li>For distinguishing between large and small trailers, use relative sizes w.r.t adjacent objects and
+                    the definition of classes always !</li>
+                <li>Select appropriate category from "buses, small vehicles, small trailers, large trailers,
+                    specialized, trucks, unknown or a not a vehicle at all"</li>
+                <li> that appear and look closer to any of these categories)</li>
+                <li>There is a class called as unknown : such as it might just be significant to note it is a vehicle
+                    but not significant enough to classify as vehicle classes.</li>
+                <li>When in doubt, please do refer this <a
+                        href="https://mturk-s3-cg.s3.amazonaws.com/Classes-Definitions.pdf">Definitions of Classes</a>.
+                </li>
+            </ol>
+        </detailed-instructions>
+        <positive-example>
+            <p>small vehicle class:</p>
+
+            <img class="positive" src="https://mturk-s3-cg.s3.amazonaws.com/small.png" />
+
+            <p>trailer_large vehicle class:</p>
+
+            <img class="positive" src="https://mturk-s3-cg.s3.amazonaws.com/trailer1.png" />
+
+            <p>trailer_small vehicle class:</p>
+
+            <img class="positive" src="https://mturk-s3-cg.s3.amazonaws.com/trailer2.png" />
+
+            <p>unknown vehicle class:</p>
+            <img class="unknown" src="https://mturk-s3-cg.s3.amazonaws.com/unknown-1.jpg" />
+            <img class="unknown" src="https://mturk-s3-cg.s3.amazonaws.com/unknown-2.jpg" />
+            <img class="unknown" src="https://mturk-s3-cg.s3.amazonaws.com/unknown-3.jpg" />
+        </positive-example>
+        <negative-example>
+            <p>There are no requested objects in the following negative examples: no Vehicles, no Trailers, no Trucks,
+                SUVs, Vans, RVs. So the right option would be to select "not-a-vehicle". For all good examples, refer
+                classes definitions.</p>
+            <img class="negative" src="https://mturk-s3-cg.s3.amazonaws.com/negative-example2.png" />
+            <img class="negative" src="https://mturk-s3-cg.s3.amazonaws.com/negative-example1.png" />
+            <img class="negative" src="https://mturk-s3-cg.s3.amazonaws.com/negative-example3.png" />
+            <img class="negative" src="https://mturk-s3-cg.s3.amazonaws.com/negative-example4.png" />
+
+        </negative-example>
+    </crowd-instructions>
+    <p style="word-break: break-all;"><strong>
+            <crowd-button variant="link" onclick="clickViewInstr();">
+                <iron-icon icon="info-outline" />
+            </crowd-button>About this Task:
+        </strong>This task contains 25 images. You need to select an appropriate label for the marked object in each
+        image.
+        <a href="https://mturk-s3-cg.s3.amazonaws.com/Classes-Definitions.pdf">Visit definitions of each class and
+            examples</a>
+    </p>
+    <crowd-image-classifier name="${image1_url}" header="Choose the correct category for the marked object"
+        src="${image1_url}" categories="[  'Bus - includes all buses, school buses' ,  'Small - includes cars, SUVs, cars, Sedan, pickup trucks, station wagon, minivan, Coupe, Microcar, Hatchback', 
+        'Specialized - the vehicles such as tractors, plows, balers or any vehicle that has special function such as cement mixing vehicle', 
+        'Large trailers - trailers that are large -both loaded or unloaded. (relative to adjacent vehicle/objects sizes)', 
+        'Small trailers - includes small trailers such as caravans, popup campers', 
+        'Trucks - includes Large trucks, trucks with attached trailers',
+        'Van_rv - includes vans, RVs, Motorhomes, camper vans']">
+    </crowd-image-classifier>
+    <crowd-image-classifier name="${image2_url}" header="Choose the correct category for the marked object"
+        src="${image2_url}" categories="[  'Bus - includes all buses, school buses' ,  'Small - includes cars, SUVs, cars, Sedan, pickup trucks, station wagon, minivan, Coupe, Microcar, Hatchback', 
+        'Specialized - the vehicles such as tractors, plows, balers or any vehicle that has special function such as cement mixing vehicle', 
+        'Large trailers - trailers that are large -both loaded or unloaded. (relative to adjacent vehicle/objects sizes)', 
+        'Small trailers - includes small trailers such as caravans, popup campers', 
+        'Trucks - includes Large trucks, trucks with attached trailers',
+        'Van_rv - includes vans, RVs, Motorhomes, camper vans']">
+
+    </crowd-image-classifier>
+    <crowd-image-classifier name="${image3_url}" header="Choose the correct category for the marked object"
+        src="${image3_url}" categories="[  'Bus - includes all buses, school buses' ,  'Small - includes cars, SUVs, cars, Sedan, pickup trucks, station wagon, minivan, Coupe, Microcar, Hatchback', 
+        'Specialized - the vehicles such as tractors, plows, balers or any vehicle that has special function such as cement mixing vehicle', 
+        'Large trailers - trailers that are large -both loaded or unloaded. (relative to adjacent vehicle/objects sizes)', 
+        'Small trailers - includes small trailers such as caravans, popup campers', 
+        'Trucks - includes Large trucks, trucks with attached trailers',
+        'Van_rv - includes vans, RVs, Motorhomes, camper vans']">
+
+    </crowd-image-classifier>
+    <crowd-image-classifier name="${image4_url}" header="Choose the correct category for the marked object"
+        src="${image4_url}" categories="[  'Bus - includes all buses, school buses' ,  'Small - includes cars, SUVs, cars, Sedan, pickup trucks, station wagon, minivan, Coupe, Microcar, Hatchback', 
+        'Specialized - the vehicles such as tractors, plows, balers or any vehicle that has special function such as cement mixing vehicle', 
+        'Large trailers - trailers that are large -both loaded or unloaded. (relative to adjacent vehicle/objects sizes)', 
+        'Small trailers - includes small trailers such as caravans, popup campers', 
+        'Trucks - includes Large trucks, trucks with attached trailers',
+        'Van_rv - includes vans, RVs, Motorhomes, camper vans']">
+
+    </crowd-image-classifier>
+    <crowd-image-classifier name="${image5_url}" header="Choose the correct category for the marked object"
+        src="${image5_url}" categories="[  'Bus - includes all buses, school buses' ,  'Small - includes cars, SUVs, cars, Sedan, pickup trucks, station wagon, minivan, Coupe, Microcar, Hatchback', 
+        'Specialized - the vehicles such as tractors, plows, balers or any vehicle that has special function such as cement mixing vehicle', 
+        'Large trailers - trailers that are large -both loaded or unloaded. (relative to adjacent vehicle/objects sizes)', 
+        'Small trailers - includes small trailers such as caravans, popup campers', 
+        'Trucks - includes Large trucks, trucks with attached trailers',
+        'Van_rv - includes vans, RVs, Motorhomes, camper vans']">
+
+    </crowd-image-classifier>
+    <crowd-image-classifier name="${image6_url}" header="Choose the correct category for the marked object"
+        src="${image6_url}" categories="[  'Bus - includes all buses, school buses' ,  'Small - includes cars, SUVs, cars, Sedan, pickup trucks, station wagon, minivan, Coupe, Microcar, Hatchback', 
+        'Specialized - the vehicles such as tractors, plows, balers or any vehicle that has special function such as cement mixing vehicle', 
+        'Large trailers - trailers that are large -both loaded or unloaded. (relative to adjacent vehicle/objects sizes)', 
+        'Small trailers - includes small trailers such as caravans, popup campers', 
+        'Trucks - includes Large trucks, trucks with attached trailers',
+        'Van_rv - includes vans, RVs, Motorhomes, camper vans']">
+
+    </crowd-image-classifier>
+    <crowd-image-classifier name="${image7_url}" header="Choose the correct category for the marked object"
+        src="${image7_url}" categories="[  'Bus - includes all buses, school buses' ,  'Small - includes cars, SUVs, cars, Sedan, pickup trucks, station wagon, minivan, Coupe, Microcar, Hatchback', 
+        'Specialized - the vehicles such as tractors, plows, balers or any vehicle that has special function such as cement mixing vehicle', 
+        'Large trailers - trailers that are large -both loaded or unloaded. (relative to adjacent vehicle/objects sizes)', 
+        'Small trailers - includes small trailers such as caravans, popup campers', 
+        'Trucks - includes Large trucks, trucks with attached trailers',
+        'Van_rv - includes vans, RVs, Motorhomes, camper vans']">
+
+    </crowd-image-classifier>
+    <crowd-image-classifier name="${image8_url}" header="Choose the correct category for the marked object"
+        src="${image8_url}" categories="[  'Bus - includes all buses, school buses' ,  'Small - includes cars, SUVs, cars, Sedan, pickup trucks, station wagon, minivan, Coupe, Microcar, Hatchback', 
+        'Specialized - the vehicles such as tractors, plows, balers or any vehicle that has special function such as cement mixing vehicle', 
+        'Large trailers - trailers that are large -both loaded or unloaded. (relative to adjacent vehicle/objects sizes)', 
+        'Small trailers - includes small trailers such as caravans, popup campers', 
+        'Trucks - includes Large trucks, trucks with attached trailers',
+        'Van_rv - includes vans, RVs, Motorhomes, camper vans']">
+
+    </crowd-image-classifier>
+    <crowd-image-classifier name="${image9_url}" header="Choose the correct category for the marked object"
+        src="${image9_url}" categories="[  'Bus - includes all buses, school buses' ,  'Small - includes cars, SUVs, cars, Sedan, pickup trucks, station wagon, minivan, Coupe, Microcar, Hatchback', 
+        'Specialized - the vehicles such as tractors, plows, balers or any vehicle that has special function such as cement mixing vehicle', 
+        'Large trailers - trailers that are large -both loaded or unloaded. (relative to adjacent vehicle/objects sizes)', 
+        'Small trailers - includes small trailers such as caravans, popup campers', 
+        'Trucks - includes Large trucks, trucks with attached trailers',
+        'Van_rv - includes vans, RVs, Motorhomes, camper vans']">
+
+    </crowd-image-classifier>
+    <crowd-image-classifier name="${image10_url}" header="Choose the correct category for the marked object"
+        src="${image10_url}" categories="[  'Bus - includes all buses, school buses' ,  'Small - includes cars, SUVs, cars, Sedan, pickup trucks, station wagon, minivan, Coupe, Microcar, Hatchback', 
+        'Specialized - the vehicles such as tractors, plows, balers or any vehicle that has special function such as cement mixing vehicle', 
+        'Large trailers - trailers that are large -both loaded or unloaded. (relative to adjacent vehicle/objects sizes)', 
+        'Small trailers - includes small trailers such as caravans, popup campers', 
+        'Trucks - includes Large trucks, trucks with attached trailers',
+        'Van_rv - includes vans, RVs, Motorhomes, camper vans']">
+
+    </crowd-image-classifier>
+    <crowd-image-classifier name="${image11_url}" header="Choose the correct category for the marked object"
+        src="${image11_url}" categories="[  'Bus - includes all buses, school buses' ,  'Small - includes cars, SUVs, cars, Sedan, pickup trucks, station wagon, minivan, Coupe, Microcar, Hatchback', 
+        'Specialized - the vehicles such as tractors, plows, balers or any vehicle that has special function such as cement mixing vehicle', 
+        'Large trailers - trailers that are large -both loaded or unloaded. (relative to adjacent vehicle/objects sizes)', 
+        'Small trailers - includes small trailers such as caravans, popup campers', 
+        'Trucks - includes Large trucks, trucks with attached trailers',
+        'Van_rv - includes vans, RVs, Motorhomes, camper vans']">
+
+    </crowd-image-classifier>
+
+    <crowd-image-classifier name="${image12_url}" header="Choose the correct category for the marked object"
+        src="${image12_url}" categories="[  'Bus - includes all buses, school buses' ,  'Small - includes cars, SUVs, cars, Sedan, pickup trucks, station wagon, minivan, Coupe, Microcar, Hatchback', 
+    'Specialized - the vehicles such as tractors, plows, balers or any vehicle that has special function such as cement mixing vehicle', 
+    'Large trailers - trailers that are large -both loaded or unloaded. (relative to adjacent vehicle/objects sizes)', 
+    'Small trailers - includes small trailers such as caravans, popup campers', 
+    'Trucks - includes Large trucks, trucks with attached trailers',
+    'Van_rv - includes vans, RVs, Motorhomes, camper vans']">
+    </crowd-image-classifier>
+
+    <crowd-image-classifier name="${image13_url}" header="Choose the correct category for the marked object"
+        src="${image13_url}" categories="[  'Bus - includes all buses, school buses' ,  'Small - includes cars, SUVs, cars, Sedan, pickup trucks, station wagon, minivan, Coupe, Microcar, Hatchback', 
+    'Specialized - the vehicles such as tractors, plows, balers or any vehicle that has special function such as cement mixing vehicle', 
+    'Large trailers - trailers that are large -both loaded or unloaded. (relative to adjacent vehicle/objects sizes)', 
+    'Small trailers - includes small trailers such as caravans, popup campers', 
+    'Trucks - includes Large trucks, trucks with attached trailers',
+    'Van_rv - includes vans, RVs, Motorhomes, camper vans']">
+
+    </crowd-image-classifier>
+
+
+    <crowd-image-classifier name="${image14_url}" header="Choose the correct category for the marked object"
+        src="${image14_url}" categories="[  'Bus - includes all buses, school buses' ,  'Small - includes cars, SUVs, cars, Sedan, pickup trucks, station wagon, minivan, Coupe, Microcar, Hatchback', 
+    'Specialized - the vehicles such as tractors, plows, balers or any vehicle that has special function such as cement mixing vehicle', 
+    'Large trailers - trailers that are large -both loaded or unloaded. (relative to adjacent vehicle/objects sizes)', 
+    'Small trailers - includes small trailers such as caravans, popup campers', 
+    'Trucks - includes Large trucks, trucks with attached trailers',
+    'Van_rv - includes vans, RVs, Motorhomes, camper vans']">
+
+    </crowd-image-classifier>
+
+
+
+    <crowd-image-classifier name="${image15_url}" header="Choose the correct category for the marked object"
+        src="${image15_url}" categories="[  'Bus - includes all buses, school buses' ,  'Small - includes cars, SUVs, cars, Sedan, pickup trucks, station wagon, minivan, Coupe, Microcar, Hatchback', 
+    'Specialized - the vehicles such as tractors, plows, balers or any vehicle that has special function such as cement mixing vehicle', 
+    'Large trailers - trailers that are large -both loaded or unloaded. (relative to adjacent vehicle/objects sizes)', 
+    'Small trailers - includes small trailers such as caravans, popup campers', 
+    'Trucks - includes Large trucks, trucks with attached trailers',
+    'Van_rv - includes vans, RVs, Motorhomes, camper vans']">
+
+    </crowd-image-classifier>
+
+
+    <crowd-image-classifier name="${image16_url}" header="Choose the correct category for the marked object"
+        src="${image16_url}" categories="[  'Bus - includes all buses, school buses' ,  'Small - includes cars, SUVs, cars, Sedan, pickup trucks, station wagon, minivan, Coupe, Microcar, Hatchback', 
+    'Specialized - the vehicles such as tractors, plows, balers or any vehicle that has special function such as cement mixing vehicle', 
+    'Large trailers - trailers that are large -both loaded or unloaded. (relative to adjacent vehicle/objects sizes)', 
+    'Small trailers - includes small trailers such as caravans, popup campers', 
+    'Trucks - includes Large trucks, trucks with attached trailers',
+    'Van_rv - includes vans, RVs, Motorhomes, camper vans']">
+
+    </crowd-image-classifier>
+
+
+    <crowd-image-classifier name="${image17_url}" header="Choose the correct category for the marked object"
+        src="${image17_url}" categories="[  'Bus - includes all buses, school buses' ,  'Small - includes cars, SUVs, cars, Sedan, pickup trucks, station wagon, minivan, Coupe, Microcar, Hatchback', 
+    'Specialized - the vehicles such as tractors, plows, balers or any vehicle that has special function such as cement mixing vehicle', 
+    'Large trailers - trailers that are large -both loaded or unloaded. (relative to adjacent vehicle/objects sizes)', 
+    'Small trailers - includes small trailers such as caravans, popup campers', 
+    'Trucks - includes Large trucks, trucks with attached trailers',
+    'Van_rv - includes vans, RVs, Motorhomes, camper vans']">
+
+    </crowd-image-classifier>
+
+
+    <crowd-image-classifier name="${image18_url}" header="Choose the correct category for the marked object"
+        src="${image18_url}" categories="[  'Bus - includes all buses, school buses' ,  'Small - includes cars, SUVs, cars, Sedan, pickup trucks, station wagon, minivan, Coupe, Microcar, Hatchback', 
+    'Specialized - the vehicles such as tractors, plows, balers or any vehicle that has special function such as cement mixing vehicle', 
+    'Large trailers - trailers that are large -both loaded or unloaded. (relative to adjacent vehicle/objects sizes)', 
+    'Small trailers - includes small trailers such as caravans, popup campers', 
+    'Trucks - includes Large trucks, trucks with attached trailers',
+    'Van_rv - includes vans, RVs, Motorhomes, camper vans']">
+
+    </crowd-image-classifier>
+
+
+    <crowd-image-classifier name="${image19_url}" header="Choose the correct category for the marked object"
+        src="${image19_url}" categories="[  'Bus - includes all buses, school buses' ,  'Small - includes cars, SUVs, cars, Sedan, pickup trucks, station wagon, minivan, Coupe, Microcar, Hatchback', 
+    'Specialized - the vehicles such as tractors, plows, balers or any vehicle that has special function such as cement mixing vehicle', 
+    'Large trailers - trailers that are large -both loaded or unloaded. (relative to adjacent vehicle/objects sizes)', 
+    'Small trailers - includes small trailers such as caravans, popup campers', 
+    'Trucks - includes Large trucks, trucks with attached trailers',
+    'Van_rv - includes vans, RVs, Motorhomes, camper vans']">
+
+    </crowd-image-classifier>
+
+
+    <crowd-image-classifier name="${image20_url}" header="Choose the correct category for the marked object"
+        src="${image20_url}" categories="[  'Bus - includes all buses, school buses' ,  'Small - includes cars, SUVs, cars, Sedan, pickup trucks, station wagon, minivan, Coupe, Microcar, Hatchback', 
+    'Specialized - the vehicles such as tractors, plows, balers or any vehicle that has special function such as cement mixing vehicle', 
+    'Large trailers - trailers that are large -both loaded or unloaded. (relative to adjacent vehicle/objects sizes)', 
+    'Small trailers - includes small trailers such as caravans, popup campers', 
+    'Trucks - includes Large trucks, trucks with attached trailers',
+    'Van_rv - includes vans, RVs, Motorhomes, camper vans']">
+
+    </crowd-image-classifier>
+
+
+    <crowd-image-classifier name="${image21_url}" header="Choose the correct category for the marked object"
+        src="${image21_url}" categories="[  'Bus - includes all buses, school buses' ,  'Small - includes cars, SUVs, cars, Sedan, pickup trucks, station wagon, minivan, Coupe, Microcar, Hatchback', 
+    'Specialized - the vehicles such as tractors, plows, balers or any vehicle that has special function such as cement mixing vehicle', 
+    'Large trailers - trailers that are large -both loaded or unloaded. (relative to adjacent vehicle/objects sizes)', 
+    'Small trailers - includes small trailers such as caravans, popup campers', 
+    'Trucks - includes Large trucks, trucks with attached trailers',
+    'Van_rv - includes vans, RVs, Motorhomes, camper vans']">
+
+    </crowd-image-classifier>
+
+    <crowd-image-classifier name="${image22_url}" header="Choose the correct category for the marked object"
+        src="${image22_url}" categories="[  'Bus - includes all buses, school buses' ,  'Small - includes cars, SUVs, cars, Sedan, pickup trucks, station wagon, minivan, Coupe, Microcar, Hatchback', 
+    'Specialized - the vehicles such as tractors, plows, balers or any vehicle that has special function such as cement mixing vehicle', 
+    'Large trailers - trailers that are large -both loaded or unloaded. (relative to adjacent vehicle/objects sizes)', 
+    'Small trailers - includes small trailers such as caravans, popup campers', 
+    'Trucks - includes Large trucks, trucks with attached trailers',
+    'Van_rv - includes vans, RVs, Motorhomes, camper vans']">
+
+    </crowd-image-classifier>
+    <crowd-image-classifier name="${image23_url}" header="Choose the correct category for the marked object"
+        src="${image23_url}" categories="[  'Bus - includes all buses, school buses' ,  'Small - includes cars, SUVs, cars, Sedan, pickup trucks, station wagon, minivan, Coupe, Microcar, Hatchback', 
+'Specialized - the vehicles such as tractors, plows, balers or any vehicle that has special function such as cement mixing vehicle', 
+'Large trailers - trailers that are large -both loaded or unloaded. (relative to adjacent vehicle/objects sizes)', 
+'Small trailers - includes small trailers such as caravans, popup campers', 
+'Trucks - includes Large trucks, trucks with attached trailers',
+'Van_rv - includes vans, RVs, Motorhomes, camper vans']">
+
+    </crowd-image-classifier>
+    <crowd-image-classifier name="${image24_url}" header="Choose the correct category for the marked object"
+        src="${image24_url}" categories="[  'Bus - includes all buses, school buses' ,  'Small - includes cars, SUVs, cars, Sedan, pickup trucks, station wagon, minivan, Coupe, Microcar, Hatchback', 
+'Specialized - the vehicles such as tractors, plows, balers or any vehicle that has special function such as cement mixing vehicle', 
+'Large trailers - trailers that are large -both loaded or unloaded. (relative to adjacent vehicle/objects sizes)', 
+'Small trailers - includes small trailers such as caravans, popup campers', 
+'Trucks - includes Large trucks, trucks with attached trailers',
+'Van_rv - includes vans, RVs, Motorhomes, camper vans']">
+
+    </crowd-image-classifier>
+    <crowd-image-classifier name="${image25_url}" header="Choose the correct category for the marked object"
+        src="${image25_url}" categories="[  'Bus - includes all buses, school buses' ,  'Small - includes cars, SUVs, cars, Sedan, pickup trucks, station wagon, minivan, Coupe, Microcar, Hatchback', 
+'Specialized - the vehicles such as tractors, plows, balers or any vehicle that has special function such as cement mixing vehicle', 
+'Large trailers - trailers that are large -both loaded or unloaded. (relative to adjacent vehicle/objects sizes)', 
+'Small trailers - includes small trailers such as caravans, popup campers', 
+'Trucks - includes Large trucks, trucks with attached trailers',
+'Van_rv - includes vans, RVs, Motorhomes, camper vans']">
+
+    </crowd-image-classifier>
+    <h3>Feedback:</h3>
+    <p>Please write us about your experience on this task, what was easy, what was difficult, what could be better</p>
+    <crowd-text-area name="feedback" rows="10"></crowd-text-area>
+
+    <crowd-button id="submit-button" form-action="submit" onclick="submitClassificationTaskWhenReady(event);"
+        class="awsui-button awsui-button-variant-primary awsui-hover-child-icons" style="align-self: center;">Submit
+    </crowd-button>
+</crowd-form>

@@ -1,0 +1,198 @@
+<script src="https://assets.crowd.aws/crowd-html-elements.js"></script>
+<script src="https://sdk.amazonaws.com/js/aws-sdk-2.834.0.min.js"></script>
+<script src="https://mturk-s3-cg.s3.amazonaws.com/mar_23/changes/april/initialize_labels.js"
+    type="text/javascript"></script>
+<link rel="stylesheet" href="https://mturk-s3-cg.s3.amazonaws.com/mar_23/changes/slider_style_4.css">
+<script src="https://mturk-s3-cg.s3.amazonaws.com/initialize_kp.js" type="text/javascript"></script>
+
+<!-- <script src="initialize.js" type="text/javascript"></script> -->
+<style>
+    img.negative {
+        width: 100%;
+        height: 60%;
+        margin: 10px;
+    }
+
+    img.positive {
+        width: 60%;
+    }
+
+    img.unknown {
+        width: 30%;
+    }
+</style>
+<script>
+
+    window.addEventListener('DOMContentLoaded', (event) => {
+        console.log("DOMcontent fully loaded");
+        var interval = setInterval(function () {
+            if (document.readyState === 'complete') {
+                clearInterval(interval);
+                initializeTask1();
+                console.log("initialized");
+                disable_remaining_buttons();
+                document.querySelectorAll("crowd-keypoint")[0].shadowRoot.querySelector("div[id=react-mount-point]")
+                    .querySelector("div[class=awsui]")
+                    .querySelector("footer[id=footerContainer]")
+                    .querySelector("div[id=actionsContainer]").querySelector("button").style.visibility = "hidden";
+                document.querySelectorAll("crowd-keypoint")[0].shadowRoot.querySelector("div[id=react-mount-point]")
+                    .querySelector("div[class=awsui]")
+                    .querySelector("footer[id=footerContainer]")
+                    .querySelector("div[id=actionsContainer]").querySelector("awsui-button").style.visibility = "hidden";
+            }
+            if (document.readyState === 'interactive') {
+                clearInterval(interval);
+                //initializeTask1();
+                //disable_remaining_buttons();
+                console.log("initialized");
+            }
+        }, 2000);
+    });
+
+</script>
+<crowd-form>
+    <crowd-instructions link-text="View instructions" link-type="button">
+        <short-summary>
+            <p>This task contains 10 images taken from a single large image.</p>
+            <p>Each sub-image needs to be marked at the center points of bounding boxes of requested objects for
+                appropriate labels.</p>
+            <p>For each image, you need to find all vehicles that appear in that image.</p>
+            <p>Then mark the center points of bounding boxes of all the vehicles in the image.</p>
+            <p>The definitions and examples of tasks are provided <a
+                    href="https://mturk-s3-cg.s3.amazonaws.com/Classes-Definitions.pdf">here</a></p>
+            <p>This is a full task, needs to be completed for all the small images.</p>
+            <p> Please note marking all vehicles in image is as important as making sure they do belong to our classes
+                definitions <a href="https://mturk-s3-cg.s3.amazonaws.com/Classes-Definitions.pdf">here</a>.</p>
+            <p>Skipping any single sub-image or leaving out visible vehicles from this marking task will lead to lesser
+                payment.</p>
+        </short-summary>
+        <detailed-instructions>
+            <p>Use the point tool to place points on the center of the requested target(s) of interest:</p>
+            <ol>
+                <li>Refer these guidelines for identifying objects as well as when deciding appropriate labels : <a
+                        href="https://mturk-s3-cg.s3.amazonaws.com/Classes-Definitions.pdf">Definitions of Classes :
+                        Guidelines for each class</a></li>
+                <li>Place a point in the center of the item using your mouse over each instance of the target.</li>
+                <li> Zoom if you do use a small screen device for this task.</li>
+                <li>Do not include parts of the target that cannot be seen, even though you think you
+                    can interpolate the whole shape of the target.</li>
+                <li>Use the subject's left and right, not yours.</li>
+                <li>Avoid shadows, they're not considered as a part of the target.</li>
+                <li>For distinguishing between large and small trailers, use relative sizes w.r.t adjacent objects and
+                    the definition of classes always !</li>
+                <li>Mark all vehicles. (cars, SUVs, cars, Sedan, pickup trucks, trucks, small and large trailers (loaded
+                    or not loaded), </li>
+                <li>large trucks, buses, vans, RVs, Caravans and specialized vehicles and any other vehicles that appear
+                    and look closer to any of these categories)</li>
+                <li>There is a class called as unknown : such as it might just be significant to note it is a vehicle
+                    but not significant enough to classify to a specific vehicle class.</li>
+                <li>When in doubt, please refer this: <a
+                        href="https://mturk-s3-cg.s3.amazonaws.com/Classes-Definitions.pdf">Definitions of Classes</a>.
+                </li>
+            </ol>
+        </detailed-instructions>
+        <positive-example>
+            <p>small vehicle class:</p>
+
+            <img class="positive" alt="" src="https://mturk-s3-cg.s3.amazonaws.com/small.png" />
+
+            <p>trailer_large vehicle class:</p>
+
+            <img class="positive" alt="" src="https://mturk-s3-cg.s3.amazonaws.com/trailer1.png" />
+
+            <p>trailer_small vehicle class:</p>
+
+            <img class="positive" alt="" src="https://mturk-s3-cg.s3.amazonaws.com/trailer2.png" />
+
+
+            <p>unknown vehicle class:</p>
+            <img class="unknown" alt="" src="https://mturk-s3-cg.s3.amazonaws.com/unknown-1.jpg" />
+            <img class="unknown" alt="" src="https://mturk-s3-cg.s3.amazonaws.com/unknown-2.jpg" />
+            <img class="unknown" alt="" src="https://mturk-s3-cg.s3.amazonaws.com/unknown-3.jpg" />
+        </positive-example>
+        <negative-example>
+            <p>There are no requested objects in the following negative examples: no Vehicles, no Trailers, no Trucks,
+                SUVs, Vans, RVs</p>
+            <img class="negative" alt="" src="https://mturk-s3-cg.s3.amazonaws.com/negative-example2.png" />
+            <img class="negative" alt="" src="https://mturk-s3-cg.s3.amazonaws.com/negative-example1.png" />
+            <img class="negative" alt="" src="https://mturk-s3-cg.s3.amazonaws.com/negative-example3.png" />
+            <img class="negative" alt="" src="https://mturk-s3-cg.s3.amazonaws.com/negative-example4.png" />
+
+        </negative-example>
+    </crowd-instructions>
+    <p style="word-break: break-all;"><strong>
+            <crowd-button variant="link" onclick="clickViewInstr();">
+                <iron-icon icon="info-outline" />
+            </crowd-button>About this Task:
+        </strong>This task contains 20 images taken from a single large image. Each image needs to be
+        marked at the center points of bounding boxes of requested objects for appropriate labels.
+        <a href="https://mturk-s3-cg.s3.amazonaws.com/Classes-Definitions.pdf">Visit definitions of each class and
+            examples</a>
+    </p>
+    <crowd-keypoint src="${image1_url}" labels="['All Vehicles']"
+        header="Please locate the centers of each of requested object(s)." name="${image1_url}">
+    </crowd-keypoint>
+    <crowd-keypoint src="${image2_url}" labels="['All Vehicles']"
+        header="Please locate the centers of each of requested object(s)" name="${image2_url}">
+    </crowd-keypoint>
+    <crowd-keypoint src="${image3_url}" labels="['All Vehicles']"
+        header="Please locate the centers of each of requested object(s)" name="${image3_url}">
+    </crowd-keypoint>
+    <crowd-keypoint src="${image4_url}" labels="['All Vehicles']"
+        header="Please locate the centers of each of requested object(s)" name="${image4_url}">
+    </crowd-keypoint>
+    <crowd-keypoint src="${image5_url}" labels="['All Vehicles']"
+        header="Please locate the centers of each of requested object(s)" name="${image5_url}">
+    </crowd-keypoint>
+    <crowd-keypoint src="${image6_url}" labels="['All Vehicles']"
+        header="Please locate the centers of each of requested object(s)" name="${image6_url}">
+    </crowd-keypoint>
+    <crowd-keypoint src="${image7_url}" labels="['All Vehicles']"
+        header="Please locate the centers of each of requested object(s)" name="${image7_url}">
+    </crowd-keypoint>
+    <crowd-keypoint src="${image8_url}" labels="['All Vehicles']"
+        header="Please locate the centers of each of requested object(s)" name="${image8_url}">
+    </crowd-keypoint>
+    <crowd-keypoint src="${image9_url}" labels="['All Vehicles']"
+        header="Please locate the centers of each of requested object(s)" name="${image9_url}">
+    </crowd-keypoint>
+    <crowd-keypoint src="${image10_url}" labels="['All Vehicles']"
+        header="Please locate the centers of each of requested object(s)" name="${image10_url}">
+    </crowd-keypoint>
+    <crowd-keypoint src="${image11_url}" labels="['All Vehicles']"
+        header="Please locate the centers of each of requested object(s)" name="${image11_url}">
+    </crowd-keypoint>
+    <crowd-keypoint src="${image12_url}" labels="['All Vehicles']"
+        header="Please locate the centers of each of requested object(s)" name="${image12_url}">
+    </crowd-keypoint>
+    <crowd-keypoint src="${image13_url}" labels="['All Vehicles']"
+        header="Please locate the centers of each of requested object(s)" name="${image13_url}">
+    </crowd-keypoint>
+    <crowd-keypoint src="${image14_url}" labels="['All Vehicles']"
+        header="Please locate the centers of each of requested object(s)" name="${image14_url}">
+    </crowd-keypoint>
+    <crowd-keypoint src="${image15_url}" labels="['All Vehicles']"
+        header="Please locate the centers of each of requested object(s)" name="${image15_url}">
+    </crowd-keypoint>
+    <crowd-keypoint src="${image16_url}" labels="['All Vehicles']"
+        header="Please locate the centers of each of requested object(s)" name="${image16_url}">
+    </crowd-keypoint>
+    <crowd-keypoint src="${image17_url}" labels="['All Vehicles']"
+        header="Please locate the centers of each of requested object(s)" name="${image17_url}">
+    </crowd-keypoint>
+    <crowd-keypoint src="${image18_url}" labels="['All Vehicles']"
+        header="Please locate the centers of each of requested object(s)" name="${image18_url}">
+    </crowd-keypoint>
+    <crowd-keypoint src="${image19_url}" labels="['All Vehicles']"
+        header="Please locate the centers of each of requested object(s)" name="${image19_url}">
+    </crowd-keypoint>
+    <crowd-keypoint src="${image20_url}" labels="['All Vehicles']"
+        header="Please locate the centers of each of requested object(s)" name="${image20_url}">
+    </crowd-keypoint>
+    <h3>Feedback:</h3>
+    <p>Please write us about your experience on this task, what was easy, what was difficult, what could be better</p>
+    <crowd-text-area name="feedback" rows="10"></crowd-text-area>
+    <crowd-button id="submit-button" form-action="submit" onclick="submitKeypointTaskWhenReady(event);"
+        class="awsui-button awsui-button-variant-primary awsui-hover-child-icons" style="align-self: center;">Submit
+    </crowd-button>
+</crowd-form>
