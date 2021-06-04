@@ -1,0 +1,329 @@
+<QuestionForm xmlns="http://mechanicalturk.amazonaws.com/AWSMechanicalTurkDataSchemas/2005-10-01/QuestionForm.xsd">
+    <Overview>
+        <Title>Qualify to work on Keypoint tasks</Title>
+        <Text>
+        Object Detection tasks involve marking a center of the objects that belong to specific, listed categories. The categories of interest are "vehicles" that include 
+        any of cars, SUVs, cars, Sedan, pickup trucks, station wagon, minivan, Coupe, Microcar, Hatchback, trucks, both small and large trailers (loaded or not loaded) vans, RVs, Motorhomes, camper vans, caravans, popup campers.
+        Below is an example of the bounding box user interface, for a task where
+        </Text>
+        <FormattedContent><![CDATA[
+        <h3><strong>Introduction to Marking keypoint Tasks</strong></h3>
+        ]]>        </FormattedContent>
+        <Text>
+        If you successfully qualify to work on marking keypoint tasks by taking and passing both of the two tests outlined below, 
+        you can proceed with next tasks. thank you for the time taken to understand the task in full and to undertake these tests.
+        
+        </Text>
+        <FormattedContent><![CDATA[
+        <table cellpadding="0" cellspacing="0" border="0" width="100%">
+            <tbody><tr>
+              <td align="center">
+                  <img src="https://mturk-s3-cg.s3.amazonaws.com/qualificationtest/kp-image.png" alt="Example of image with all vehicles to be marked" />
+              </td>
+            </tr>
+          </tbody></table>
+          ]]>        </FormattedContent>
+        
+
+        <FormattedContent><![CDATA[
+        <h3><strong>Detailed Instructions for keypoint marking Tasks</strong></h3>
+        ]]>        </FormattedContent>
+        <Text>To complete a keypoint task, you will use the tools provided to click and mark a point at center of bounding box of each object that belong to listed categories. The general but specific listed categories that we grouped into as "all vehicles" are shown in the task interface to the right of the image.
+         To achieve accurate center of bounding box of the each object in the image, make sure you use the Zoom tool to zoom in and focus on the area of detail. In the below example, the Zoom tool has been used to draw a point at center of the car:
+        </Text>
+        <FormattedContent><![CDATA[
+        <table cellpadding="0" cellspacing="0" border="0" width="100%">
+            <tbody><tr>
+              <td align="center">
+                  <img src="https://mturk-s3-cg.s3.amazonaws.com/qualificationtest/kp-zoom-marking.png" alt="Example of fully marked image with all vehicle catrogies" />
+              </td>
+            </tr>
+          </tbody></table>
+          ]]>        </FormattedContent>
+
+    </Overview>
+    <Question>
+        <QuestionIdentifier>Q0</QuestionIdentifier>
+        <DisplayName>Q0</DisplayName>
+        <IsRequired>true</IsRequired>
+        <QuestionContent>
+            <Title>Understanding categories definitions of objects to be marked</Title>
+            <Text>Read the following categories definitions:</Text>
+            <List>
+                <ListItem>Refer the categories definitions when deciding appropriate labels : https://mturk-s3-cg.s3.amazonaws.com/Classes-Definitions.pdf Definitions of Classes :
+		Guidelines for each class</ListItem>
+                <ListItem>Each question contains an image marked with single object. The marked objects in each image need to be labelled to appropriate category from the listed categoreis.</ListItem>
+                <ListItem>Text description of each category is as follows </ListItem>
+                <ListItem>"Small" - includes cars, SUVs, cars, Sedan, pickup trucks, station wagon, minivan, Coupe, Microcar, Hatchback</ListItem>
+                <ListItem>"VanRV" - includes vans, RVs, Motorhomes, camper vans</ListItem>
+                <ListItem>"Bus" - includes all buses, school buses</ListItem>
+                <ListItem>"Trucks" - includes Large trucks, trucks with attached trailers</ListItem>
+                <ListItem>"Specialized" - the vehicles such as tractors, plows, balers or any vehicle that has special function such as cement mixing vehicle</ListItem>
+                <ListItem>"Small trailers" - includes small trailers such as caravans, popup campers</ListItem>
+                <ListItem>"Large trailers" - trailers that are large -both loaded or unloaded. (relative to adjacent vehicle/objects sizes).</ListItem>
+                <ListItem>"Unknown" - such as it might just be significant to note it is a vehicle close to one of above classes
+		but not significant enough to classify to a specific vehicle class. </ListItem>
+                <ListItem>Vehicles that should be marked as "not relevant" if it is a motorbike, motorcyles/bicycles, Golf carts, sprinklers</ListItem>
+            </List>
+        </QuestionContent>
+        <AnswerSpecification>
+            <SelectionAnswer>
+                <StyleSuggestion>checkbox</StyleSuggestion>
+                <Selections>
+                    <Selection>
+                        <SelectionIdentifier>read</SelectionIdentifier>
+                        <Text>Yes I have read the catergories descriptions. </Text>
+                    </Selection>
+                     <Selection>
+                        <SelectionIdentifier>notread</SelectionIdentifier>
+                        <Text>No I did not read the catergories descriptions. </Text>
+                    </Selection>
+                </Selections>
+            </SelectionAnswer>
+        </AnswerSpecification>
+
+    </Question>
+    <Overview>
+        <Text>
+        In this image you will answer if annotator has done a accurate job. The keypoint task involves marking centers of requested objects.
+        </Text>
+    </Overview>
+    <Question>
+        <QuestionIdentifier>Q1</QuestionIdentifier>
+        <DisplayName>Q1</DisplayName>
+        <IsRequired>true</IsRequired>
+        <QuestionContent>
+            <Text>In the below image, did the annotator adhere to the quality standards outlined above to mark in the center of the bounding box of each of requested objects ?</Text>
+            <FormattedContent><![CDATA[
+        <table cellpadding="0" cellspacing="0" border="0" width="100%">
+            <tbody><tr>
+              <td align="center">
+                  <img src="https://mturk-s3-cg.s3.amazonaws.com/qualificationtest/kp-marking-away-from-center-vehicles.png" alt="Marking centers of each vehicle" />
+              </td>
+            </tr>
+          </tbody></table>
+          ]]>        </FormattedContent>
+           
+        </QuestionContent>
+        <AnswerSpecification>
+            <SelectionAnswer>
+                <MinSelectionCount>0</MinSelectionCount>
+                <MaxSelectionCount>2</MaxSelectionCount>
+                <StyleSuggestion>checkbox</StyleSuggestion>
+                <Selections>
+                    <Selection>
+                        <SelectionIdentifier>point1</SelectionIdentifier>
+                        <Text>All keypoints are NOT marked at the centers of the bounding box of requested objects.</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>point2</SelectionIdentifier>
+                        <Text>All keypoints marked are the centers of the bounding box of requested objects.</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>object1</SelectionIdentifier>
+                        <Text>All vehicles marked in the image belong to the categories defined above.</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>object2</SelectionIdentifier>
+                        <Text>All vehicles marked in the image do NOT belong to the categories defined above.</Text>
+                    </Selection>
+                </Selections>
+            </SelectionAnswer>
+        </AnswerSpecification>
+    </Question>
+    <Overview>
+        <Text>
+            In this image you will answer if annotator has done a accurate job. The keypoint task involves marking single centers for each of requested objects.
+        </Text>
+    </Overview>
+    <Question>
+        <QuestionIdentifier>Q2</QuestionIdentifier>
+        <DisplayName>Q2</DisplayName>
+        <IsRequired>true</IsRequired>
+        <QuestionContent>
+            <Text>In the below image, did the annotator mark single keypoint at center of each vehicle ? which of the following are true for the annotation work ?</Text>
+             <FormattedContent><![CDATA[
+                            
+        <table cellpadding="0" cellspacing="0" border="0" width="100%">
+            <tbody><tr>
+              <td align="center">
+                  <img src="https://mturk-s3-cg.s3.amazonaws.com/qualificationtest/kp-marking-multiple-keypoint-each-object.png" alt="Marking centers of each vehicle" />
+              </td>
+            </tr>
+          </tbody></table>
+          ]]>        </FormattedContent>
+          <!-- <FormattedContent><![CDATA[
+<iframe scrolling="no" frameborder="0" name="frame1" width="800" height="600" src="https://mturk-s3-cg.s3.amazonaws.com/qualificationtest/keypoint_questions2.html">Your browser does not support IFRAMEs. Please return this HIT.</iframe>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+<p><a href="https://mturk-s3-cg.s3.amazonaws.com/qualificationtest/keypoint_questions2.html" target="frame1">W3Schools.com</a></p>
+]]></FormattedContent>  -->
+            
+        </QuestionContent>
+        <AnswerSpecification>
+            <SelectionAnswer>
+                <MinSelectionCount>2</MinSelectionCount>
+                <MaxSelectionCount>2</MaxSelectionCount>
+                <StyleSuggestion>checkbox</StyleSuggestion>
+                <Selections>
+                    <Selection>
+                        <SelectionIdentifier>allowed</SelectionIdentifier>
+                        <Text> Multiple keypoints marked on each vehicle in the image are allowed.</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>notallwoed</SelectionIdentifier>
+                        <Text> Multiple keypoints marked on each vehicle in the image are NOT allowed.</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>multiplecenters</SelectionIdentifier>
+                        <Text>We need to mark multiple points to get just centers of each object.</Text>
+                    </Selection>
+                     <Selection>
+                        <SelectionIdentifier>singlecenter</SelectionIdentifier>
+                        <Text>We need to mark ONLY single point and only center of bounding box of each of the vehicle.</Text>
+                    </Selection>
+                </Selections>
+            </SelectionAnswer>
+        </AnswerSpecification>
+    </Question>
+    <Overview>
+        <Text>
+        In this image you will answer if annotator has done a accurate job. The keypoint task involves marking centers of vehicles of above mentioned categories.
+        </Text>
+    </Overview>
+    <Question>
+        <QuestionIdentifier>Q3</QuestionIdentifier>
+        <DisplayName>Q3</DisplayName>
+        <IsRequired>true</IsRequired>
+        <QuestionContent>
+            <Text>In the below image, did the annotator adhere to the quality standards outlined above to all vehicles alone ? which of the following are true for the annotation work ?</Text>
+            <FormattedContent><![CDATA[
+        <table cellpadding="0" cellspacing="0" border="0" width="100%">
+            <tbody><tr>
+              <td align="center">
+                  <img src="https://mturk-s3-cg.s3.amazonaws.com/qualificationtest/kp-wrong-non-vehicle-marking.png" alt="Marking centers of all vehicles " />
+              </td>
+            </tr>
+          </tbody></table>
+          ]]>        </FormattedContent>
+           
+        </QuestionContent>
+        <AnswerSpecification>
+            <SelectionAnswer>
+                <MinSelectionCount>1</MinSelectionCount>
+                <MaxSelectionCount>4</MaxSelectionCount>
+                <StyleSuggestion>checkbox</StyleSuggestion>
+                <Selections>
+                    <Selection>
+                        <SelectionIdentifier>vehicles</SelectionIdentifier>
+                        <Text>The keypoints marked in the image point to all vehicles categories only.</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>nonvehicles</SelectionIdentifier>
+                        <Text>Keypoints marked do NOT belong to just vehicles categories.</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>5</SelectionIdentifier>
+                        <Text>There are only 5 vehicles that belong to categories defined.</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>6</SelectionIdentifier>
+                        <Text>There are only 6 vehicles that belong to categories defined.</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>7</SelectionIdentifier>
+                        <Text>There are only 7 vehicles that belong to categories defined.</Text>
+                    </Selection>
+                </Selections>
+            </SelectionAnswer>
+        </AnswerSpecification>
+    </Question>
+    <Overview>
+        <Text>
+        In this image you will answer if annotator has done a accurate job.
+        </Text>
+    </Overview>
+    <Question>
+        <QuestionIdentifier>Q4</QuestionIdentifier>
+        <DisplayName>Q4</DisplayName>
+        <IsRequired>true</IsRequired>
+        <QuestionContent>
+            <Text>In the below image, did the annotator adhere to the quality standards outlined above to mark center of the bounding box of each of requested objects ?</Text>
+             <FormattedContent><![CDATA[
+        <table cellpadding="0" cellspacing="0" border="0" width="100%">
+            <tbody><tr>
+              <td align="center">
+                  <img src="https://mturk-s3-cg.s3.amazonaws.com/qualificationtest/kp-correct-marking.png" alt="Marking centers of all vehicles" />
+              </td>
+            </tr>
+          </tbody></table>
+          ]]>        </FormattedContent>
+            <!-- <EmbeddedBinary>
+                <EmbeddedMimeType>
+                    <Type>image</Type>
+                    <SubType>png</SubType>
+                </EmbeddedMimeType>
+                <DataURL>https://mturk-s3-cg.s3.amazonaws.com/qualificationtest/kp-correct-marking.png</DataURL>
+                <AltText>Marking centers of all vehicles </AltText>
+                <Width>1200</Width>
+                <Height>800</Height>
+            </EmbeddedBinary> -->
+        </QuestionContent>
+        <AnswerSpecification>
+            <SelectionAnswer>
+                <MinSelectionCount>1</MinSelectionCount>
+                <MaxSelectionCount>3</MaxSelectionCount>
+                <StyleSuggestion>checkbox</StyleSuggestion>
+                <Selections>
+                    <Selection>
+                        <SelectionIdentifier>correctpoints</SelectionIdentifier>
+                        <Text>The keypoints marked in the image point to centers of all vehicles .</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>correctcategories</SelectionIdentifier>
+                        <Text>They belong to the above defined categoreis of vehicles.</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>6vehicles</SelectionIdentifier>
+                        <Text>There 6 vehicles that are marked.</Text>
+                    </Selection>
+                </Selections>
+            </SelectionAnswer>
+        </AnswerSpecification>
+    </Question>
+    <Overview>
+        <Text>
+        In this section, we will conclude the test.
+        </Text>
+    </Overview>
+    <Question>
+        <QuestionIdentifier>Q5</QuestionIdentifier>
+        <DisplayName>Q5</DisplayName>
+        <IsRequired>true</IsRequired>
+        <QuestionContent>
+            <Title>Understanding categories definitions of objects to be marked</Title>
+            <Text>Read the following details :</Text>
+            <List>
+                <ListItem>Your answers will be automatically assessed, and if you get at least 84% of the questions correct, you will be awarded the first of two qualifications that will qualify you to work on Keypoint marking tasks. If you do not get enough questions correct, you will not be able to re-take this test for 24 hours.
+                </ListItem>
+                <ListItem>After submitting this form, find the separate qualifying HIT for keypoint tasks, in which you will complete an actual keypoint(this link will open the HITs search screen in a separate tab; the separate qualifying HIT will appear in the search results).
+                </ListItem>
+                <ListItem>If you acheive 85% of accuracy in this qualification test and the HIT task attached to this Qualifying HIT, you will receive the payment. And you will be qualified to work on keypoint tasks.
+                </ListItem>
+                <ListItem>If you acheive 85% of accuracy in this qualification test and the HIT task attached to this Qualifying HIT, you will receive the payment.
+                </ListItem>
+            </List>
+        </QuestionContent>
+        <AnswerSpecification>
+            <SelectionAnswer>
+                <StyleSuggestion>checkbox</StyleSuggestion>
+                <Selections>
+                    <Selection>
+                        <SelectionIdentifier>point</SelectionIdentifier>
+                        <Text>Yes I have read and agree to submit my results. </Text>
+                    </Selection>
+                </Selections>
+            </SelectionAnswer>
+        </AnswerSpecification>
+
+    </Question>
+</QuestionForm>

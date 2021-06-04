@@ -1,0 +1,341 @@
+<QuestionForm xmlns="http://mechanicalturk.amazonaws.com/AWSMechanicalTurkDataSchemas/2005-10-01/QuestionForm.xsd">
+  <Overview>
+    <Title>Classify each vehicle to a category for the marked object in the image</Title>
+    <Text>
+  You are helping to classify vehicles in an image. Each sub-image contains marked object and needs to be selected with appropriate labels
+    </Text>
+    <FormattedContent><![CDATA[
+        <table cellpadding="0" cellspacing="0" border="0" width="60%">
+            <tbody><tr>
+              <td align="center">
+                  <img src="https://mturk-s3-cg.s3.amazonaws.com/small.png" alt="Example of classified object in the image" />
+              </td>
+            </tr>
+          </tbody></table>
+          ]]>    </FormattedContent>
+    <FormattedContent><![CDATA[
+        <table cellpadding="0" cellspacing="0" border="0" width="60%">
+            <tbody><tr>
+              <td align="center" width="60%">
+                  <img src="https://mturk-s3-cg.s3.amazonaws.com/trailer1.png" alt="Example of classified object in the image" />
+              </td>
+            </tr>
+          </tbody></table>
+          ]]>    </FormattedContent>
+    <FormattedContent><![CDATA[
+        <table cellpadding="0" cellspacing="0" border="0" width="60%">
+            <tbody><tr>
+              <td align="center">
+                  <img src="https://mturk-s3-cg.s3.amazonaws.com/trailer2.png" alt="Example of classified object in the image" />
+              </td>
+            </tr>
+          </tbody></table>
+          ]]>    </FormattedContent>
+
+    <List>
+      <ListItem>Refer the categories definitions when deciding appropriate labels : https://mturk-s3-cg.s3.amazonaws.com/Classes-Definitions.pdf Definitions of Classes : Guidelines for each class</ListItem>
+      <ListItem>Each question contains an image marked with single object. The marked objects in each image need to be labelled to appropriate category from the listed categoreis.</ListItem>
+      <ListItem>Text description of each category is as follows </ListItem>
+      <ListItem>"Small" - includes cars, SUVs, cars, Sedan, pickup trucks, station wagon, minivan, Coupe, Microcar, Hatchback</ListItem>
+      <ListItem>"VanRV" - includes vans, RVs, Motorhomes, camper vans</ListItem>
+      <ListItem>"Bus" - includes all buses, school buses</ListItem>
+      <ListItem>"Trucks" - includes Large trucks, trucks with attached trailers</ListItem>
+      <ListItem>"Specialized" - the vehicles such as tractors, plows, balers or any vehicle that has special function such as cement mixing vehicle</ListItem>
+      <ListItem>"Small trailers" - includes small trailers such as caravans, popup campers</ListItem>
+      <ListItem>"Large trailers" - trailers that are large -both loaded or unloaded. (relative to adjacent vehicle/objects sizes).</ListItem>
+      <ListItem>"Unknown" - such as it might just be significant to note it is a vehicle close to one of above classes but not significant enough to classify to a specific vehicle class. </ListItem>
+      <ListItem>Vehicles that should be marked as "not relevant" if it is a motorbike, motorcyles/bicycles, Golf carts, sprinklers</ListItem>
+    </List>
+  </Overview>
+  <Question>
+    <QuestionIdentifier>read_instructions</QuestionIdentifier>
+    <DisplayName>Q1</DisplayName>
+    <IsRequired>true</IsRequired>
+    <QuestionContent>
+      <Text>Have you read the Instructions given above ?  </Text>
+    </QuestionContent>
+    <AnswerSpecification>
+      <SelectionAnswer>
+        <StyleSuggestion>radiobutton</StyleSuggestion>
+        <Selections>
+          <Selection>
+            <SelectionIdentifier>yes</SelectionIdentifier>
+            <Text>yes</Text>
+          </Selection>
+          <Selection>
+            <SelectionIdentifier>no</SelectionIdentifier>
+            <Text>no</Text>
+          </Selection>
+        </Selections>
+      </SelectionAnswer>
+    </AnswerSpecification>
+  </Question>
+  <Question>
+    <QuestionIdentifier>small1</QuestionIdentifier>
+    <DisplayName>Q2</DisplayName>
+    <IsRequired>true</IsRequired>
+    <QuestionContent>
+      <Text>What class of vehicle does following marked vehicle belong to ?  </Text>
+      <Binary>
+        <MimeType>
+          <Type>image</Type>
+          <SubType>png</SubType>
+        </MimeType>
+        <DataURL>https://mturk-s3-cg.s3.amazonaws.com/qualificationtest/9-30-2848-9579.png</DataURL>
+        <AltText>	Vehicle classification</AltText>
+      </Binary>
+    </QuestionContent>
+    <AnswerSpecification>
+      <SelectionAnswer>
+        <StyleSuggestion>radiobutton</StyleSuggestion>
+        <Selections>
+          <Selection>
+            <SelectionIdentifier>bus</SelectionIdentifier>
+            <Text>"Bus" - includes all buses, school buses</Text>
+          </Selection>
+          <Selection>
+            <SelectionIdentifier>small</SelectionIdentifier>
+            <Text>"Small" - includes cars, SUVs, cars, Sedan, pickup trucks, station wagon, minivan, Coupe, Microcar, Hatchback</Text>
+          </Selection>
+          <Selection>
+            <SelectionIdentifier>specialized</SelectionIdentifier>
+            <Text>"Specialized" - the vehicles such as tractors, plows, balers or any vehicle that has special function such as cement mixing vehicle</Text>
+          </Selection>
+          <Selection>
+            <SelectionIdentifier>trailer_large</SelectionIdentifier>
+            <Text>"Large trailers" - trailers that are large -both loaded or unloaded. (relative to adjacent vehicle/objects sizes).</Text>
+          </Selection>
+          <Selection>
+            <SelectionIdentifier>trailer_small</SelectionIdentifier>
+            <Text>"Small trailers" - includes small trailers such as caravans, popup campers</Text>
+          </Selection>
+          <Selection>
+            <SelectionIdentifier>truck</SelectionIdentifier>
+            <Text>"Trucks" - includes Large trucks, trucks with attached trailers</Text>
+          </Selection>
+          <Selection>
+            <SelectionIdentifier>van_rv</SelectionIdentifier>
+            <Text>"van_rv" - includes vans, RVs, Motorhomes, camper vans</Text>
+          </Selection>
+          <Selection>
+            <SelectionIdentifier>unknown</SelectionIdentifier>
+            <Text>"Unknown" - such as it might just be significant to note it is a vehicle close to one of above classes but not significant enough to classify to a specific vehicle class.</Text>
+          </Selection>
+          <Selection>
+            <SelectionIdentifier>Not relevant</SelectionIdentifier>
+            <Text>Vehicles that should be marked as "not relevant" if it is a motorbike, motorcyles/bicycles, Golf carts, sprinklers etc</Text>
+          </Selection>
+        </Selections>
+      </SelectionAnswer>
+    </AnswerSpecification>
+  </Question>
+  <Question>
+    <QuestionIdentifier>truck</QuestionIdentifier>
+    <DisplayName>Q3</DisplayName>
+    <IsRequired>true</IsRequired>
+    <QuestionContent>
+      <Text>What class of vehicle does following marked vehicle belong to ?  </Text>
+      <Binary>
+        <MimeType>
+          <Type>image</Type>
+          <SubType>png</SubType>
+        </MimeType>
+        <DataURL>https://mturk-s3-cg.s3.amazonaws.com/qualificationtest/classification/0004_0002_14780-2664.png</DataURL>
+        <AltText>	Vehicle classification</AltText>
+      </Binary>
+    </QuestionContent>
+    <AnswerSpecification>
+      <SelectionAnswer>
+        <StyleSuggestion>radiobutton</StyleSuggestion>
+        <Selections>
+          <Selection>
+            <SelectionIdentifier>bus</SelectionIdentifier>
+            <Text>"Bus" - includes all buses, school buses</Text>
+          </Selection>
+          <Selection>
+            <SelectionIdentifier>small</SelectionIdentifier>
+            <Text>"Small" - includes cars, SUVs, cars, Sedan, pickup trucks, station wagon, minivan, Coupe, Microcar, Hatchback</Text>
+          </Selection>
+          <Selection>
+            <SelectionIdentifier>specialized</SelectionIdentifier>
+            <Text>"Specialized" - the vehicles such as tractors, plows, balers or any vehicle that has special function such as cement mixing vehicle</Text>
+          </Selection>
+          <Selection>
+            <SelectionIdentifier>trailer_large</SelectionIdentifier>
+            <Text>"Large trailers" - trailers that are large -both loaded or unloaded. (relative to adjacent vehicle/objects sizes).</Text>
+          </Selection>
+          <Selection>
+            <SelectionIdentifier>trailer_small</SelectionIdentifier>
+            <Text>"Small trailers" - includes small trailers such as caravans, popup campers</Text>
+          </Selection>
+          <Selection>
+            <SelectionIdentifier>truck</SelectionIdentifier>
+            <Text>"Trucks" - includes Large trucks, trucks with attached trailers</Text>
+          </Selection>
+          <Selection>
+            <SelectionIdentifier>van_rv</SelectionIdentifier>
+            <Text>"van_rv" - includes vans, RVs, Motorhomes, camper vans</Text>
+          </Selection>
+          <Selection>
+            <SelectionIdentifier>unknown</SelectionIdentifier>
+            <Text>"Unknown" - such as it might just be significant to note it is a vehicle close to one of above classes but not significant enough to classify to a specific vehicle class.</Text>
+          </Selection>
+          <Selection>
+            <SelectionIdentifier>Not relevant</SelectionIdentifier>
+            <Text>Vehicles that should be marked as "not relevant" if it is a motorbike, motorcyles/bicycles, Golf carts, sprinklers etc</Text>
+          </Selection>
+        </Selections>
+      </SelectionAnswer>
+    </AnswerSpecification>
+  </Question>
+  <Question>
+    <QuestionIdentifier>small3</QuestionIdentifier>
+    <DisplayName>Q4</DisplayName>
+    <IsRequired>true</IsRequired>
+    <QuestionContent>
+      <Text>What class of vehicle does following marked vehicle belong to ?  </Text>
+      <Binary>
+        <MimeType>
+          <Type>image</Type>
+          <SubType>png</SubType>
+        </MimeType>
+        <DataURL>https://mturk-s3-cg.s3.amazonaws.com/qualificationtest/classification/0006_0004_11691-100.png</DataURL>
+        <AltText>	Vehicle classification</AltText>
+      </Binary>
+    </QuestionContent>
+    <AnswerSpecification>
+      <SelectionAnswer>
+        <StyleSuggestion>radiobutton</StyleSuggestion>
+        <Selections>
+          <Selection>
+            <SelectionIdentifier>bus</SelectionIdentifier>
+            <Text>"Bus" - includes all buses, school buses</Text>
+          </Selection>
+          <Selection>
+            <SelectionIdentifier>small</SelectionIdentifier>
+            <Text>"Small" - includes cars, SUVs, cars, Sedan, pickup trucks, station wagon, minivan, Coupe, Microcar, Hatchback</Text>
+          </Selection>
+          <Selection>
+            <SelectionIdentifier>specialized</SelectionIdentifier>
+            <Text>"Specialized" - the vehicles such as tractors, plows, balers or any vehicle that has special function such as cement mixing vehicle</Text>
+          </Selection>
+          <Selection>
+            <SelectionIdentifier>trailer_large</SelectionIdentifier>
+            <Text>"Large trailers" - trailers that are large -both loaded or unloaded. (relative to adjacent vehicle/objects sizes).</Text>
+          </Selection>
+          <Selection>
+            <SelectionIdentifier>trailer_small</SelectionIdentifier>
+            <Text>"Small trailers" - includes small trailers such as caravans, popup campers</Text>
+          </Selection>
+          <Selection>
+            <SelectionIdentifier>truck</SelectionIdentifier>
+            <Text>"Trucks" - includes Large trucks, trucks with attached trailers</Text>
+          </Selection>
+          <Selection>
+            <SelectionIdentifier>van_rv</SelectionIdentifier>
+            <Text>"van_rv" - includes vans, RVs, Motorhomes, camper vans</Text>
+          </Selection>
+          <Selection>
+            <SelectionIdentifier>unknown</SelectionIdentifier>
+            <Text>"Unknown" - such as it might just be significant to note it is a vehicle close to one of above classes but not significant enough to classify to a specific vehicle class.</Text>
+          </Selection>
+          <Selection>
+            <SelectionIdentifier>Not relevant</SelectionIdentifier>
+            <Text>Vehicles that should be marked as "not relevant" if it is a motorbike, motorcyles/bicycles, Golf carts, sprinklers etc</Text>
+          </Selection>
+        </Selections>
+      </SelectionAnswer>
+    </AnswerSpecification>
+  </Question>
+  <Question>
+    <QuestionIdentifier>trailer</QuestionIdentifier>
+    <DisplayName>Q5</DisplayName>
+    <IsRequired>true</IsRequired>
+    <QuestionContent>
+      <Text>What class of vehicle does following marked vehicle belong to ?  </Text>
+      <Binary>
+        <MimeType>
+          <Type>image</Type>
+          <SubType>png</SubType>
+        </MimeType>
+        <DataURL>https://mturk-s3-cg.s3.amazonaws.com/qualificationtest/classification/0008_0001_2563-4749.png</DataURL>
+        <AltText>	Vehicle classification</AltText>
+      </Binary>
+    </QuestionContent>
+    <AnswerSpecification>
+      <SelectionAnswer>
+        <StyleSuggestion>radiobutton</StyleSuggestion>
+        <Selections>
+          <Selection>
+            <SelectionIdentifier>bus</SelectionIdentifier>
+            <Text>"Bus" - includes all buses, school buses</Text>
+          </Selection>
+          <Selection>
+            <SelectionIdentifier>small</SelectionIdentifier>
+            <Text>"Small" - includes cars, SUVs, cars, Sedan, pickup trucks, station wagon, minivan, Coupe, Microcar, Hatchback</Text>
+          </Selection>
+          <Selection>
+            <SelectionIdentifier>specialized</SelectionIdentifier>
+            <Text>"Specialized" - the vehicles such as tractors, plows, balers or any vehicle that has special function such as cement mixing vehicle</Text>
+          </Selection>
+          <Selection>
+            <SelectionIdentifier>trailer_large</SelectionIdentifier>
+            <Text>"Large trailers" - trailers that are large -both loaded or unloaded. (relative to adjacent vehicle/objects sizes).</Text>
+          </Selection>
+          <Selection>
+            <SelectionIdentifier>trailer_small</SelectionIdentifier>
+            <Text>"Small trailers" - includes small trailers such as caravans, popup campers</Text>
+          </Selection>
+          <Selection>
+            <SelectionIdentifier>truck</SelectionIdentifier>
+            <Text>"Trucks" - includes Large trucks, trucks with attached trailers</Text>
+          </Selection>
+          <Selection>
+            <SelectionIdentifier>van_rv</SelectionIdentifier>
+            <Text>"van_rv" - includes vans, RVs, Motorhomes, camper vans</Text>
+          </Selection>
+          <Selection>
+            <SelectionIdentifier>unknown</SelectionIdentifier>
+            <Text>"Unknown" - such as it might just be significant to note it is a vehicle close to one of above classes but not significant enough to classify to a specific vehicle class.</Text>
+          </Selection>
+          <Selection>
+            <SelectionIdentifier>Not relevant</SelectionIdentifier>
+            <Text>Vehicles that should be marked as "not relevant" if it is a motorbike, motorcyles/bicycles, Golf carts, sprinklers etc</Text>
+          </Selection>
+        </Selections>
+      </SelectionAnswer>
+    </AnswerSpecification>
+  </Question>
+  <Question>
+    <QuestionIdentifier>Q6</QuestionIdentifier>
+    <DisplayName>Q6</DisplayName>
+    <IsRequired>true</IsRequired>
+    <QuestionContent>
+      <Title>Understanding categories definitions of objects to be classified</Title>
+      <Text>Read the following details :</Text>
+      <List>
+        <ListItem>Your answers will be automatically assessed, and if you get at least 85% of the questions correct,  you will receive the payment. And you can proceed and find image classification HITs by "Test MTurk User". 
+        </ListItem>
+        <ListItem>You agree to follow guidelines and classes definitions for doing the image classification tasks. 
+        </ListItem>
+        <ListItem>If you do not get enough questions correct, you will not be able to re-take this test for 24 hours.</ListItem>
+      </List>
+    </QuestionContent>
+    <AnswerSpecification>
+      <SelectionAnswer>
+        <StyleSuggestion>radiobutton</StyleSuggestion>
+        <Selections>
+          <Selection>
+            <SelectionIdentifier>point1</SelectionIdentifier>
+            <Text>Yes I have read and agree to submit my results. </Text>
+          </Selection>
+          <Selection>
+            <SelectionIdentifier>point2</SelectionIdentifier>
+            <Text>No I have not read. </Text>
+          </Selection>
+        </Selections>
+      </SelectionAnswer>
+    </AnswerSpecification>
+
+  </Question>
+</QuestionForm>
