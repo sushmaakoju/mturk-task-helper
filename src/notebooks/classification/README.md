@@ -12,7 +12,7 @@ Note: all file paths are absolute, it is not easy to make the paths relative, du
     * Always make sure to run any AWS / Mechanical Turk scripts on sandbox environment i.e. developer sandbox first before running in Prod Endpoint urls. 
     * Although all endpoint urls do point to developer sandbox. It is good idea you get aquainted with this before running on Prod environment.
 
-#### Generate Sub images
+1. Generate Sub images
 * The Jupyter Notebook to generate subimages from each of main image file, annotations json file pairs for Selwyn Image dataset are available: [](https://github.com/sushmaakoju/mturk-task-helper/blob/main/src/notebooks/classification/generate_subimages_for_classify_hit-changes.ipynb)
 * [Notebook viewer](https://nbviewer.jupyter.org/github/sushmaakoju/mturk-task-helper/blob/main/src/notebooks/classification/generate_subimages_for_classify_hit-changes.ipynb)
 * The components covered in this Notebook are:
@@ -24,28 +24,28 @@ Note: all file paths are absolute, it is not easy to make the paths relative, du
     * Saves each of cropped image
     * For each main image, saves all of the sub image slice locations with corresponding annotation locations that exist in that cropped image, to a csv file.
 
-#### Upload sub images to AWS S3:
+2. Upload sub images to AWS S3:
 * Given an input folder, upload the images from that folder to AWS S3 using Python library boto3.
 * The Jupyter notebook: [upload_images_to_s3](https://github.com/sushmaakoju/mturk-task-helper/blob/main/src/notebooks/classification/upload_images_to_s3.ipynb)
 * [Notebook viewer](https://nbviewer.jupyter.org/github/sushmaakoju/mturk-task-helper/blob/main/src/notebooks/classification/upload_images_to_s3.ipynb)
 
-#### Generate image urls CSV file, for creating batch of HIT tasks on Mechanical Turk requester website:
+3. Generate image urls CSV file, for creating batch of HIT tasks on Mechanical Turk requester website:
 * The Jupyter notebook:[generate_csv_image_urls](https://github.com/sushmaakoju/mturk-task-helper/blob/main/src/notebooks/classification/generate_csv_image_urls.ipynb)
 * [Notebook Viewer](https://nbviewer.jupyter.org/github/sushmaakoju/mturk-task-helper/blob/main/src/notebooks/classification/generate_csv_image_urls.ipynb)
 * If you are using a local server that is serving the sub images, make sure to update the csv file with image urls/update generate csv file image url script.
 
-#### Download objects from S3:
+4. Download objects from S3:
 * The Jupyter notebook: [download_from_s3](https://github.com/sushmaakoju/mturk-task-helper/blob/main/src/notebooks/classification/download_from_s3.ipynb)
 
-#### Before heading to Mechanical Turk scripts, the following provides a warm-up for Boto3 library:
+5. Before heading to Mechanical Turk scripts, the following provides a warm-up for Boto3 library:
 * Boto3 warm up and comple MTurk HIT creation details to practice [Mechanical Turk warm-up tutorial](https://blog.mturk.com/tutorial-a-beginners-guide-to-crowdsourcing-ml-training-data-with-python-and-mturk-d8df4bdf2977)
 
-#### Create Qualification test 
+6. Create Qualification test 
 * Create a an XML format questions template. Refer question template [](https://github.com/sushmaakoju/mturk-task-helper/blob/main/src/notebooks/classification/layouts/questions.xml)
 * Create a qualification test with following script: [Create Qualification test for Classification tasks](https://github.com/sushmaakoju/mturk-task-helper/blob/main/src/notebooks/classification/create_qualtest_hit.ipynb)
 * For answer key: <refer this link>
 
-#### Create HIT Layout on Mechanical Turk Requester website:
+7. Create HIT Layout on Mechanical Turk Requester website:
 * Navigate to Requester Sandbox [https://requestersandbox.mturk.com/create/projects/new](https://requestersandbox.mturk.com/create/projects/new)
 * Sign in -> click on Create a HIT -> select Image classification -> Update title, description, Rewards (as decided earlier), # of assignments (in this case 3)
 
@@ -66,7 +66,7 @@ notedown the HIT layout id:
 
 * for creating Prod/Live HIT tasks, follow above steps by repeating steps on [https://requester.mturk.com/create/projects/new](https://requester.mturk.com/create/projects/new)
 
-#### Create Batch of HIT tasks for Classification tasks:
+8. Create Batch of HIT tasks for Classification tasks:
 Note: This section is expected to create a batch of scripts, given a set of image urls hosted on a server.
 
 * For the generated image urls from earlier step and after creating qualification test, make a note of path to csv file with image urls and the Qualification Test ID generated.
@@ -79,14 +79,11 @@ Note: This section is expected to create a batch of scripts, given a set of imag
 
 * If you are using a local server that is serving the sub images, make sure to update the csv file with image urls/update generate csv file image url script.
 
-#### Track status
+9. Track status
 * To track status, you should login to [https://requester.mturk.com/manage](https://requester.mturk.com/manage)
 * Select the batch you would like to check status of:
 ![image](https://github.com/sushmaakoju/mturk-task-helper/blob/main/images/classification/example-batch.PNG)
 
-### A work-in-progress web HTML layout to display MTurk tasks results, statuses (if hosting to check status is a requirement at some point)
-* Replace AWS access key and secret key in the index.html file
-* Please refer the work-in-progress html code: [MTurk worker task status viewer](https://github.com/sushmaakoju/mturk-task-helper/tree/main/src/web)
 
 
 * Assuming you have 
