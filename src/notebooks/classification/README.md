@@ -57,8 +57,8 @@ Note: all file paths are absolute, it is not easy to make the paths relative, du
 * depending on which layout you would like to create a HIT task for, once you are on Design layout page during creation of HIT task,
 Open one of the layout from [select one of Classification layouts](https://github.com/sushmaakoju/mturk-task-helper/tree/main/viz/classification) and copy the layout code and paste it in Design layout editor as follows:
 
-![image](https://github.com/sushmaakoju/mturk-task-helper/blob/main/images/classification/design-layout.PNG)
-![image](https://github.com/sushmaakoju/mturk-task-helper/blob/main/images/classification/preview-task.PNG)
+<img src="https://github.com/sushmaakoju/mturk-task-helper/blob/main/images/classification/design-layout.PNG" width="400" height="300">
+<img src="https://github.com/sushmaakoju/mturk-task-helper/blob/main/images/classification/preview-task.PNG" width="400" height="300">
 
 * Click finish and exit HIT creation process
 * Note down the HIT Layout ID by going to "Create" section -> from among the list of HIT projects displayed, click on title of the HIT project name and it should look like this,
