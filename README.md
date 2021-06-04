@@ -68,9 +68,9 @@ Please refer the analysis for Mechanical Turk website and HTML layouts using cro
 * Please refer the script to configure and setup XAMPP server on Linux server. Please do note that this is not tested on GPU over VPN due to access, this has been tested on a Linux VM which may not really be the same. [steps-to-install-xampp-server-NEEDS-CHANGES](https://github.com/sushmaakoju/mturk-task-helper/blob/main/docs/steps-serve-images-without-s3/install_xampp.sh)
 
 #### Some of HTML layouts for tasks generated, selected HTML layout candidates are between Feb 5th up until April 7th, 2021:
-* Layout with thumbnails with zoom-in on mouse-hover alognside labels [classification_hit_labels3_withhover](https://mturk-s3-cg.s3.amazonaws.com/mar_23/changes/april/classification_hit_labels3_withhover.html)
-* Layout with popup of examples alongside labels [classification_hit_labels4](https://mturk-s3-cg.s3.amazonaws.com/mar_23/changes/april/classification_hit_labels4.html)
-* Layout with popup of examples alongside labels with tooltip descriptions on mouse hover[classification_hit_labels5](https://mturk-s3-cg.s3.amazonaws.com/mar_23/changes/april/classification_hit_labels5.html)
+* Layout with thumbnails with zoom-in on mouse-hover alognside labels [classification hit task with labels with with zoomin on mouse hover](https://mturk-s3-cg.s3.amazonaws.com/mar_23/changes/april/classification_hit_labels3_withhover.html)
+* Layout with popup of examples alongside labels [classification hit task with labels and examples in popup window](https://mturk-s3-cg.s3.amazonaws.com/mar_23/changes/april/classification_hit_labels4.html)
+* Layout with popup of examples alongside labels with tooltip descriptions on mouse hover[classification hit task with labels in a popup window and on-hover tooltip](https://mturk-s3-cg.s3.amazonaws.com/mar_23/changes/april/classification_hit_labels5.html)
 * Object Identification layout [identification_hit_apr7](https://mturk-s3-cg.s3.amazonaws.com/hit_layouts/keypoint_hit_apr7.html)
 * Marker color variations follow Polar Chromaticity Coordinates and use RGB in Hue Lightness and Saturation (HLS or HSL follows from) [HLS](https://en.wikipedia.org/wiki/HSL_and_HSV#Color-making_attributes):
     * Auto-select contrasting Marker color using RGB to HLS - to get hue and find contrast , select among Red, Green or Blue color ranges on the marked object
