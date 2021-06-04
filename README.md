@@ -81,13 +81,13 @@ Please refer the analysis for Mechanical Turk website and HTML layouts using cro
 * Marker size variations impact/resonate Viewport sizes, workers/viewer's device display resolution, zoom/browser configfurations. 
 * Please refer the marker size here: [marker_size_variations](https://mturk-s3-cg.s3.amazonaws.com/mar_23/images_with_new_markers1.html)
 * Image size, zoom-in/out variations that were compared: 
-    * [classification_hit_300_size](https://mturk-s3-cg.s3.amazonaws.com/hit_layouts/classification_hit_300_size.html)
-    * [classification_hit_400_size](https://mturk-s3-cg.s3.amazonaws.com/hit_layouts/classification_hit_400_size.html
-    * [classification_hit_500_size](https://mturk-s3-cg.s3.amazonaws.com/hit_layouts/classification_hit_500_size.html
-    * [classification_hit_300_size_2x](https://mturk-s3-cg.s3.amazonaws.com/hit_layouts/classification_hit_300_size_2x.html
-    * [classification_hit_400_size_2x](https://mturk-s3-cg.s3.amazonaws.com/hit_layouts/classification_hit_400_size_2x.html
-    * [classification_hit_500_size_2x](https://mturk-s3-cg.s3.amazonaws.com/hit_layouts/classification_hit_500_size_2x.html
-    * [classification_hit_300_size_3x](https://mturk-s3-cg.s3.amazonaws.com/hit_layouts/classification_hit_300_size_3x.html
+    *  [classification_hit_300_size](https://mturk-s3-cg.s3.amazonaws.com/hit_layouts/classification_hit_300_size.html)
+    *  [classification_hit_400_size](https://mturk-s3-cg.s3.amazonaws.com/hit_layouts/classification_hit_400_size.html)
+    *  [classification_hit_500_size](https://mturk-s3-cg.s3.amazonaws.com/hit_layouts/classification_hit_500_size.html)
+    *  [classification_hit_300_size_2x](https://mturk-s3-cg.s3.amazonaws.com/hit_layouts/classification_hit_300_size_2x.html)
+    *  [classification_hit_400_size_2x](https://mturk-s3-cg.s3.amazonaws.com/hit_layouts/classification_hit_400_size_2x.html)
+    *  [classification_hit_500_size_2x](https://mturk-s3-cg.s3.amazonaws.com/hit_layouts/classification_hit_500_size_2x.html)
+    *  [classification_hit_300_size_3x](https://mturk-s3-cg.s3.amazonaws.com/hit_layouts/classification_hit_300_size_3x.html)
 
 * Finalized image size: 300*300 pixel, marker color: white, marker type: full diagonal lines intersecting at center of bounding box of object location.
 
