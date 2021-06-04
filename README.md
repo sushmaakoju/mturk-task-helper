@@ -137,8 +137,8 @@ from multiple class labels provided in the same HIT task.
 * Assuming you have decided on questions and answers to create Qualification test **
 * Some of the guidelines to create a Custom Qualification Test are: [Steps to configure](https://github.com/sushmaakoju/mturk-task-helper/blob/main/docs/approaches-analysis/mturk-annotation-tasks-documentation.docx)
 
-### Steps to creating Classification tasks are at [Contribution guidelines for this project](src/notebooks/classification/README.md)
-### Steps to creating Identification tasks are at [Contribution guidelines for this project](src/notebooks/identification/README.md)
+### Steps to creating Classification tasks are at [Steps for Classification HIT tasks](src/notebooks/classification/README.md)
+### Steps to creating Identification tasks are at [Steps for Identification HIT tasks](src/notebooks/identification/README.md)
 
 ### A work-in-progress web HTML layout to display MTurk tasks results, statuses (if hosting to check status is a requirement at some point)
 * Replace AWS access key and secret key in the index.html file
