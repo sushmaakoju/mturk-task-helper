@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>MTurk Tracker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./assets/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/styles.css">
+    <script src="./assets/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="page-container">
+        <div class="container">
+            <h1 class="display-4">CGSI MTurk HIT Status Tracker</h1>
+            <h5>Current Active HITs</h5>
+            <p>A jquery plugin to sort and paginate data in table form</p>
+            <div class="row mt-5 mb-3 align-items-center">
+                <div class="col-md-5">
+                    <button class="btn btn-primary btn-sm" id="rerender">Re-Render</button>
+                    <button class="btn btn-primary btn-sm" id="distory">Destroy</button>
+                    <button class="btn btn-primary btn-sm" id="refresh">Refresh</button>
+                </div>
+                <div class="col-md-3">
+                    <input type="text" class="form-control" placeholder="Search in table..." id="searchField">
+                </div>
+                <div class="col-md-2 text-right">
+                    <span class="pr-3">Rows Per Page:</span>
+                </div>
+                <div class="col-md-2">
+                    <div class="d-flex justify-content-end">
+                        <select class="custom-select" name="rowsPerPage" id="changeRows">
+                            <option value="1">1</option>
+                            <option value="5" selected>5</option>
+                            <option value="10">10</option>
+                            <option value="15">15</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div id="root"></div>
+            <div class="mt-4">
+                <button class="btn btn-secondary" id="setPage2">Set Page 2</button>
+            </div>
+        </div>
+    </div>
+    <script src="./assets/table-sortable.js"></script>
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.865.0.min.js"></script>
+    <script>
+        var region_name = 'us-east-1';
+        var endpoint_url = 'https://mturk-requester-sandbox.us-east-1.amazonaws.com';
+        AWS_SDK_LOAD_CONFIG = 1;
+        AWS_ACCESS_KEY_ID = 'replace-with-actual-access-key';
+        AWS_SECRET_ACCESS_KEY = 'replace-with-actual-secret-key';
+
+        AWS.config.update({ region: 'us-east-1' });
+        var ep = new AWS.Endpoint(endpoint_url);
+        var mturk = new AWS.MTurk({
+            'endpoint': ep, 'region': region_name,
+            accessKeyId: AWS_ACCESS_KEY_ID, secretAccessKey: AWS_SECRET_ACCESS_KEY
+        });
+        var params = { MaxResults: '100' };
+        var hits = undefined;
+        var table = undefined;
+
+        mturk.listHITs(params, function (err, data) {
+
+            if (err) {
+                console.log(err, err.stack); // an error occurred
+            }
+            else {
+                //console.log(data);           // successful response
+                hits = data;
+                table = loadtable(hits['HITs']);
+                console.log(hits);
+            }
+        });
+
+        function cleanHitsResponse(hits, deleteColumnsList) {
+            console.log(hits);
+            var result = Array();
+            hits.forEach(function (value, index) {
+                var hit = {};
+                Object.keys(value).forEach(function (key, val) {
+                    console.log(key, deleteColumnsList.indexOf(key))
+                    if (deleteColumnsList.indexOf(key) === -1) {
+                        hit[key] = value[key];
+                    }
+                });
+                //console.log(hit);
+                result.push(hit);
+            });
+            console.log(result)
+            return result;
+        }
+        function loadtable(hits) {
+            var new_columns = {};
+            var deleteColumnsList = ['Question', 'QualificationRequirements'];
+            var res = cleanHitsResponse(hits, deleteColumnsList);
+            Object.keys(res[0]).forEach(v => new_columns[v] = v);
+            console.log(hits, new_columns);
+            var required_columns = Object.keys(new_columns);
+
+            console.log(res);
+            return $('#root').tableSortable({
+                data: res, //data,
+                columns: new_columns,
+                searchField: '#searchField',
+                responsive: {
+                    1100: {
+                        columns: {
+                            HITId: 'HITId',
+                            Title: 'Title',
+                        },
+                    },
+                },
+                rowsPerPage: 5,
+                pagination: true,
+                tableWillMount: function () {
+                    console.log('table will mount')
+                },
+                tableDidMount: function () {
+                    console.log('table did mount')
+                },
+                tableWillUpdate: function () { console.log('table will update') },
+                tableDidUpdate: function () { console.log('table did update') },
+                tableWillUnmount: function () { console.log('table will unmount') },
+                tableDidUnmount: function () { console.log('table did unmount') },
+                onPaginationChange: function (nextPage, setPage) {
+                    setPage(nextPage);
+                }
+            });
+        }
+
+        $('#changeRows').on('change', function () {
+            table.updateRowsPerPage(parseInt($(this).val(), 10));
+        })
+
+        $('#rerender').click(function () {
+            table.refresh(true);
+        })
+
+        $('#distory').click(function () {
+            table.distroy();
+        })
+
+        $('#refresh').click(function () {
+            table.refresh();
+        })
+
+        $('#setPage2').click(function () {
+            table.setPage(1);
+        })
+    </script>
+</body>
+
+</html>
