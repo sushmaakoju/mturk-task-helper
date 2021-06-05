@@ -8,6 +8,7 @@
     4. For confusion matrix, a more agnostics statistics library that has been used: PyCM [Multi-class confusion matrix](https://github.com/sepandhaghighi/pycm)
 
 ### All of this work is in combination of guided analysis and instructions from Prof. Jessica Hodgins and team.
+### These tasks are not for worker feedback based analysis. They are for annotations, locations that do not qualify for IRB.
 
 Note: all file paths are absolute, it is not easy to make the paths relative, due to dynamic nature of HTML/XML layouts, csv files and folder path.
 * Assumptions for all Jupyter Notebooks/scripts: 
