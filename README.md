@@ -40,16 +40,20 @@ the training.
 * To finally choose optimal solution to conduct object classification and identification tasks.
 
 ### Define Object classification task:
-* Given an image with an object marked at center of bounding box, label it to appropriate class label.
+* Given an image with an object, label it to appropriate class label.
 * We provide 8 classes of labels to select from. Labeller must have to select a single label from the choices.
 
-### Requirements for Object classification task:
+### Define Object identification task:
+* Given an image with an object/objects, worker to mark at center of bounding box.
+* We provide 1 class label to select from since the focus is to get location of object.
+
+### Requirements for Object classification or Identification task:
 * Create a requester account and worker account.
 * Create a sandbox developer (requester + worker) account.
 * Define storage and server to host the images for the task.
 * Define, create HTML layouts that agree with Amazon Mechanical Turk [crowd-html-layouts library](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-ui-template-reference.html).
 * Decide on image size that fits various devices display resolutions workers may use, the type of marker, color of marker.
-* Create scripts to generate sub-images as per requirements. 
+* Create scripts to generate sub-images as per requirements for each of tasks. 
 * Generating sub-images for classification needs object locations, so we use ground truth to generate sub images for each of objects.
 * Create AWS S3 account, configure various prequisites and create a storage bucket to store the images and also host as a static website.
 * Hosting the AWS S3 bucket is helpful since it also takes care of rendering an image to be loaded on browser using EXIF information and CORS policies per ECMA.
