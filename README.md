@@ -1,7 +1,8 @@
 # mturk-task-helper
 
-## This repository is for for CGSI project at Robotics Institute, Carnegie Mellon University.
-## This repository contains examples required to conduct Mechanical Turk Labelling tasks.
+### This repository is for for CGSI project at Robotics Institute, Carnegie Mellon University.
+### All of this work is in combination of guided analysis and instructions from Prof. Jessica Hodgins and team.
+### This repository contains examples required to conduct Mechanical Turk Labelling tasks.
 ### Goal: To receive classification labels and location annotations of vehicles in Images dataset (Aerial view), to analyze results, quality and score the output.
 
 #### Background: considering current annotated Images dataset as a ground truth, analyze annotations, class labels with minimal worker training on vehicale classes.
@@ -23,6 +24,7 @@ the training.
 * In the ground truth annotation process, labellers are not anonymous. Besides assignment to same labellers repeat over several cycles of labelling tasks.
 * Thus Ground truth annotations are more agreed, more defined, with high confidence to certify this as ground truth, along with frequent feedback-based training as well as task execution.
 * The decision boundaries, classes, locations are continuously evolving with this feedback-based annotation tasks.
+* Class-wise data distribution is expected to be imbalanced.
 
 ### Considering the exhaustive nature of Ground truth annotations process, we attempt to find following with the small batch of Mechanical Turk tasks:
 * The quality of vehicle locations and labels
@@ -143,4 +145,3 @@ from multiple class labels provided in the same HIT task.
 ### A work-in-progress web HTML layout to display MTurk tasks results, statuses (if hosting to check status is a requirement at some point)
 * Replace AWS access key and secret key in the index.html file
 * Please refer the work-in-progress html code: [MTurk worker task status viewer](https://github.com/sushmaakoju/mturk-task-helper/tree/main/src/web)
-

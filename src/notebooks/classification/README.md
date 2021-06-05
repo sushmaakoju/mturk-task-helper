@@ -1,5 +1,14 @@
 
 ## Steps to Create Classification tasks:
+
+### Choice of Data representation, formats and reason for choosing the preferred data types
+    1. Batch results are saved as csv format from Mechanical Turk website.
+    2. We use Pandas DataFrame option to perform easier groupby/inner or outer joins on data.
+    3. DataFrames give flexibility to view same results in various representations.
+    4. For confusion matrix, a more agnostics statistics library that has been used: PyCM [Multi-class confusion matrix](https://github.com/sepandhaghighi/pycm)
+
+### All of this work is in combination of guided analysis and instructions from Prof. Jessica Hodgins and team.
+
 Note: all file paths are absolute, it is not easy to make the paths relative, due to dynamic nature of HTML/XML layouts, csv files and folder path.
 * Assumptions for all Jupyter Notebooks/scripts: 
     * You are not just downloading this notebook and running without checking following:
@@ -86,4 +95,36 @@ Note: This section is expected to create a batch of scripts, given a set of imag
 * Select the batch you would like to check status of:
 
 <img src="https://github.com/sushmaakoju/mturk-task-helper/blob/main/images/classification/example-batch.PNG" width="400" height="300">
+
+10. Downloading Batch results
+* To track status, you should login to [https://requester.mturk.com/manage](https://requester.mturk.com/manage)
+* Select the batch you would like to download status of:
+<img src="https://github.com/sushmaakoju/mturk-task-helper/blob/main/images/classification/batch-status-completed.PNG" width="400" height="300">
+
+* Click on results -> Click on Download csv.
+* Once results are ready, you can download and save it to foldernamed "batch_results" under `src/notebooks/classification/batch_results`.
+
+11. How to evaluate results:
+* Assuming you have folders structures with answers downloaded
+* This is shared individually with the team so the folders, csv files are not part of this
+
+    1. Analyze received batch results file and its contents. For each worker, extract labels and compare with answers. 
+
+    [classification_task_scoring](https://github.com/sushmaakoju/mturk-task-helper/blob/main/src/notebooks/classification/classification_task_scoring.ipynb)
+    [Notebook Viewer](https://nbviewer.jupyter.org/github/sushmaakoju/mturk-task-helper/blob/main/src/notebooks/classification/classification_task_scoring.ipynb)
+
+    It is interesting to note and is also easy to calculate the confusion matrix for each worker's submitted labels.
+    Since we have known class labels, it is easier to text answer labels from answers.
+
+    2. We need to find workerwise agreements, Cohen Kappa score is statistic that is used to measure inter-rater reliability.
+    [Cohen Kappa Score](https://en.wikipedia.org/wiki/Cohen%27s_kappa)
+    [cohen_kappa_score](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.cohen_kappa_score.html)
+
+    2. Another goal of executing a small batch of HIT tasks for classification is to check how many workers would be enough to get best accuracy.
+       We need to identify voted accuracy of workers. There are two voted accuracy groups to consider: a) 5 choose 3 workers and b) 5 workers.
+       Invidual code-level comments are available in the notebooks.
+
+    [accuracy_by_voting](https://github.com/sushmaakoju/mturk-task-helper/blob/main/src/notebooks/classification/accuracy_by_voting.ipynb)
+    [Notebook Viewer](https://nbviewer.jupyter.org/github/sushmaakoju/mturk-task-helper/blob/main/src/notebooks/classification/accuracy_by_voting.ipynb)
+
 

@@ -1,5 +1,7 @@
 
 ## Steps to Create Object Identification tasks:
+### All of this work is in combination of guided analysis and instructions from Prof. Jessica Hodgins and team.
+
 Note: all file paths are absolute, it is not easy to make the paths relative, due to dynamic nature of HTML/XML layouts, csv files and folder path.
 * Assumptions for all Jupyter Notebooks/scripts: 
     * You are not just downloading this notebook and running without checking following:
@@ -78,4 +80,42 @@ Note: This section is expected to create a batch of scripts, given a set of imag
 * Select the batch you would like to check status of:
 <img src="https://github.com/sushmaakoju/mturk-task-helper/blob/main/images/identification/example-batch.PNG" width="400" height="300">
 
+10. Downloading Batch results
+* To track status, you should login to [https://requester.mturk.com/manage](https://requester.mturk.com/manage)
+* Select the batch you would like to download status of:
+<img src="https://github.com/sushmaakoju/mturk-task-helper/blob/main/images/classification/batch-status-completed.PNG" width="400" height="300">
 
+* Click on results -> Click on Download csv.
+* Once results are ready, you can download and save it to foldernamed "batch_results" under `src/notebooks/classification/batch_results`.
+
+11. How to evaluate results:
+* Assuming you have folders structures with answers downloaded
+* This is shared individually with the team so the folders, csv files are not part of this
+
+    1. Analyze received batch results file and its contents. For each worker, extract annotations and slice from main images of Selwyn dataset and mark the annotations and save images.
+
+    [plot_worker_annotations_from_main_images](https://github.com/sushmaakoju/mturk-task-helper/blob/main/src/notebooks/identification/plot_worker_annotations_from_main_images.ipynb)
+    [Notebook Viewer](https://nbviewer.jupyter.org/github/sushmaakoju/mturk-task-helper/blob/main/src/notebooks/identification/plot_worker_annotations_from_main_images.ipynb)
+
+    2. Visualize ground truth vs workers' annotations on main images to understand noisy locations vs true locations.
+
+    [generate_all_locations_visualization_plots](https://github.com/sushmaakoju/mturk-task-helper/blob/main/src/notebooks/identification/generate_all_locations_visualization_plots.ipynb)
+    [Notebook Viewer](https://nbviewer.jupyter.org/github/sushmaakoju/mturk-task-helper/blob/main/src/notebooks/identification/generate_all_locations_visualization_plots.ipynb)
+
+    3. Now generate Non Maximum suppression location results from all workers' annotations combined. 
+
+    [nms](https://github.com/sushmaakoju/mturk-task-helper/blob/main/src/notebooks/identification/nms.ipynb)
+
+    4. Now generate True positives, False positives, Fasle negatives and True negatives a) workerwise annotations and b) image wise annotations
+
+    [nms](https://github.com/sushmaakoju/mturk-task-helper/blob/main/src/notebooks/identification/nms.ipynb)
+
+    [Notebook Viewer](https://nbviewer.jupyter.org/github/sushmaakoju/mturk-task-helper/blob/main/src/notebooks/identification/nms.ipynb)
+
+    5. Some of the results are generated, consolidated for more visualization the analysis and uploaded as a HTML file. From this hosted page, [](https://mturk-s3-cg.s3.amazonaws.com/task2_results/worker_wise_annotations.html)
+        1. You can see worekrwise annotations marked
+        2. Groud truth annotations marked on images
+        3. Fast NMS results
+
+        This provides a concise and quick idea of how results look like. Generally, for each batch of HIT tasks, its not a bad idea to just upload resulting images from above scripts and update image urls,
+        to present results, as needed.
