@@ -13,6 +13,7 @@ Ground truth annotations are done by labeller who received one-on-one feedback a
 
 ### Known information from Ground truth annotations, Nov-Dec 2020:
 
+* Ground truth annotations are done by team members and are NOT mechanical turk tasks.
 * There are only 8 classes of objects to be located and labelled.
 * Some classes look similar hence a detailed one-on-one discussion, analysis from other inspectors does decide true label, location of the objects.
 * The density of objects (vehicles), spatial distance between the object, the similarity of 2-dimensional shape of the real 3-dimensional objects are key factors
