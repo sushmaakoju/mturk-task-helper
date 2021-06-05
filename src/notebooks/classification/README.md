@@ -1,12 +1,5 @@
 
 ## Steps to Create Classification tasks:
-
-### Choice of Data representation, formats and reason for choosing the preferred data types
-    1. Batch results are saved as csv format from Mechanical Turk website.
-    2. We use Pandas DataFrame option to perform easier groupby/inner or outer joins on data.
-    3. DataFrames give flexibility to view same results in various representations.
-    4. For confusion matrix, a more agnostics statistics library that has been used: PyCM [Multi-class confusion matrix](https://github.com/sepandhaghighi/pycm)
-
 ### All of this work is in combination of guided analysis and instructions from Prof. Jessica Hodgins and team.
 ### These tasks are not for worker feedback based analysis. They are for annotations, locations that do not qualify for IRB.
 
@@ -21,6 +14,12 @@ Note: all file paths are absolute, it is not easy to make the paths relative, du
     * You would have configured Amazon Mechanical Turk and command line interface AWS CLI
     * Always make sure to run any AWS / Mechanical Turk scripts on sandbox environment i.e. developer sandbox first before running in Prod Endpoint urls. 
     * Although all endpoint urls do point to developer sandbox. It is good idea you get aquainted with this before running on Prod environment.
+
+### Choice of Data representation, formats and reason for choosing the preferred data types
+    1. Batch results are saved as csv format from Mechanical Turk website.
+    2. We use Pandas DataFrame option to perform easier groupby/inner or outer joins on data.
+    3. DataFrames give flexibility to view same results in various representations.
+    4. For confusion matrix, a more elaborate statistics library that has been used: PyCM [Multi-class confusion matrix](https://github.com/sepandhaghighi/pycm)
 
 1. Generate Sub images
 * The Jupyter Notebook to generate subimages from each of main image file, annotations json file pairs for Selwyn Image dataset are available: [](https://github.com/sushmaakoju/mturk-task-helper/blob/main/src/notebooks/classification/generate_subimages_for_classify_hit-changes.ipynb)
