@@ -2,12 +2,13 @@
 
 ### This repository is for for CGSI project at Robotics Institute, Carnegie Mellon University.
 ### All of this work is in combination of guided analysis and instructions from Prof. Jessica Hodgins and team.
-### This repository contains examples required to conduct Mechanical Turk Labelling tasks.
-### Goal: To receive classification labels and location annotations of vehicles in Images dataset (Aerial view), to analyze results, quality and score the output.
 
-#### Background: considering current annotated Images dataset as a ground truth, analyze annotations, class labels with minimal worker training on vehicale classes.
-#### Thus making the mehacnical turk worker tasks a little more towards "blind" labelling and annotation tasks.
-#### Ground truth annotations are done by labeller who received one-on-one feedback and follows 2-3 rounds of self-inspection as well as 3 reviewers who re-inspect the labels.
+This repository contains examples required to conduct Mechanical Turk Labelling tasks.
+Goal: To receive classification labels and location annotations of vehicles in Images dataset (Aerial view), to analyze results, quality and score the output.
+
+Background: considering current annotated Images dataset as a ground truth, analyze annotations, class labels with minimal worker training on vehicale classes.
+Thus making the mehacnical turk worker tasks a little more towards "blind" labelling and annotation tasks.
+Ground truth annotations are done by labeller who received one-on-one feedback and follows 2-3 rounds of self-inspection as well as 3 reviewers who re-inspect the labels.
 
 ### Known information from Ground truth annotations, Nov-Dec 2020:
 
