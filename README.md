@@ -1,7 +1,7 @@
 # mturk-task-helper
 
 ### This repository is for for CGSI project at Robotics Institute, Carnegie Mellon University.
-### All of this work is in combination of guided analysis and instructions from Prof. Jessica Hodgins and team.
+### All of this work is in combination of guided analysis and instructions from Prof. Jessica Hodgins and team.***
 ### These tasks are not for worker feedback based analysis. They are for annotations, locations that do not qualify for IRB.
 
 This repository contains examples required to conduct Mechanical Turk Labelling tasks.
