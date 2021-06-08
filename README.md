@@ -82,9 +82,9 @@ Please refer the analysis for Mechanical Turk website and HTML layouts using cro
 * Layout with popup of examples alongside labels with tooltip descriptions on mouse hover[classification hit task with labels in a popup window and on-hover tooltip](https://mturk-s3-cg.s3.amazonaws.com/mar_23/changes/april/classification_hit_labels5.html)
 * Object Identification layout [identification_hit_apr7](https://mturk-s3-cg.s3.amazonaws.com/hit_layouts/keypoint_hit_apr7.html)
 * Marker color variations follow Polar Chromaticity Coordinates and use RGB in Hue Lightness and Saturation (HLS or HSL follows from) [HLS](https://en.wikipedia.org/wiki/HSL_and_HSV#Color-making_attributes):
-    * Auto-select contrasting Marker color using RGB to HLS - to get hue and find contrast , select among Red, Green or Blue color ranges on the marked object
-    * Auto-select get exact contrast color: 255-R, 255-G, 255-B value of pixel at center of bounding box of the object (this is most commonly used but is not good since if color was 125, we would get exact same color as contrast)  on the marked object (not an ideal case anyway)
-    * Auto-select combine above two methpds: find contrast of current pixel color and convert to HLS and get hue range and pick one bright hue (among among Red, Green or Blue colors) on the marked object
+    * Auto-select contrasting Marker color using RGB to HLS - a) to get hue and b) find contrast , c) select among Red, Green or Blue color ranges on the marked object
+    * Auto-select contrast marker color: a) get exact contrast color: 255-R, 255-G, 255-B value of pixel at center of bounding box of the object (this is most commonly used but is not good since if color was 125, we would get exact same color as contrast)  on the marked object (not an ideal case anyway)
+    * Auto-select contrasting marker color: combine above two methpds: a) find contrast of current pixel color and b) convert to HLS and c) get hue range and d) finally pick one bright hue (among among Red, Green or Blue colors) on the marked object. This is the technique used in Gaming environments to update the scene's background images to changing script, tempo of the player/s.
  Please do refer layout with the color variations here: [markers_colors_variations](https://mturk-s3-cg.s3.amazonaws.com/mar_23/changes/april/markers_colors_variations.html)
 
 * Marker size variations impact/resonate Viewport sizes, workers/viewer's device display resolution, zoom/browser configfurations. 
