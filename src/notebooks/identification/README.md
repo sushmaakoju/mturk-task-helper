@@ -169,3 +169,10 @@ install following python requirements.
 
             This provides a concise and quick idea of how results look like. Generally, for each batch of HIT tasks, its not a bad idea to just upload resulting images from above scripts and update image urls,
             to present results, as needed.
+        
+        6.  It has been noted as per results and analysis presented so far from [June 3rd results](https://drive.google.com/file/d/1VXxVTBjJC5_2lVKidok9YeW-HSTqlt2b/view?usp=sharing). Some of the findings are as follows:
+            * Need to train workers on objects that are not vehicles
+            * Need to train workers on objects that are small trailers, distinction between inclusive classes by vehicle examples
+            * Need to provide a hyperlink popup with examples similar to classification task (with image and its aerial view)
+            * Add lot of parking lots with less noise (lesser number of no-vehicles)
+            * Provide a practice HIT for workers with feedback before allowing workers to complete a HIT task.

@@ -171,4 +171,6 @@ install following python requirements.
             * [accuracy_by_voting](https://github.com/sushmaakoju/mturk-task-helper/blob/main/src/notebooks/classification/accuracy_by_voting.ipynb)<br>
             * [Notebook Viewer](https://nbviewer.jupyter.org/github/sushmaakoju/mturk-task-helper/blob/main/src/notebooks/classification/accuracy_by_voting.ipynb)
 
+        3. It is noted from this small batch of 25 images over 3 layouts that layout design has less impact of worker's annotations and accuracy. So the important takeaway is to have workers trained well enough, as presented in results [April 28th results](https://drive.google.com/file/d/1tCucAnBGftOsYaxTfSSv2_PS7UIVubMm/view?usp=sharing)
+
 
