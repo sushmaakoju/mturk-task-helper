@@ -123,6 +123,8 @@ Please refer the analysis for Mechanical Turk website and HTML layouts using cro
 | Restricted access	   | 37|
 | Non-Image tasks	   | 6 |
 
+<br>
+
 * All multi-class Bounding Box HITS used single HIT tasks i.e. the task included both marking bounding box and labelling the bounding box 
 from multiple class labels provided in the same HIT task.
 * Out of 10 Bounding box Image HITs from 100 Image annotation tasks, 6 were single class and 4 were multi-class tasks.
