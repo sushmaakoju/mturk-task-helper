@@ -159,7 +159,7 @@ install following python requirements.
 
         4. Now generate True positives, False positives, Fasle negatives and True negatives a) workerwise annotations and b) image wise annotations
 
-            * [nms](https://github.com/sushmaakoju/mturk-task-helper/blob/main/src/notebooks/identification/nms_scoring_confusionmatrix.ipynb)<br>
+            * [nms_scoring_confusionmatrix](https://github.com/sushmaakoju/mturk-task-helper/blob/main/src/notebooks/identification/nms_scoring_confusionmatrix.ipynb)<br>
             * [Notebook Viewer](https://nbviewer.jupyter.org/github/sushmaakoju/mturk-task-helper/blob/main/src/notebooks/identification/nms_scoring_confusionmatrix.ipynb)
 
         5. Some of the results are generated, consolidated for more visualization the analysis and uploaded as a HTML file. From this hosted page, [Results hosted on website](https://mturk-s3-cg.s3.amazonaws.com/task2_results/worker_wise_annotations.html)
