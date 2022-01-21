@@ -1,7 +1,7 @@
 # mturk-task-helper
 
 ### Code of Conduct
-Please refer <a href="https://github.com/sushmaakoju/mturk-task-helper/blob/main/CODE_OF_CONDUCT.md">code of conduct</a>.
+If any additional resources were used for specific implementation, it is provided in the respective implementation file. If this repository is being used, please read and follow <a href="https://github.com/sushmaakoju/mturk-task-helper/blob/main/CODE_OF_CONDUCT.md">code of conduct guidelines</a>.
 
 ### This repository is for CGSI project at Robotics Institute, Carnegie Mellon University.
 ### All of this work is in combination of guided analysis and instructions from Prof. Jessica Hodgins and team.***
